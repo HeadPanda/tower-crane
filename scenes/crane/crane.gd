@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 
 @export_group("Crane Control")
-@export var speed := 175.0
+@export var speed := 200.0
 @export var acceleration := 75.0
 @export var friction := 800.0
 @export var top_offset := 8
@@ -57,9 +57,13 @@ func apply_movement(delta: float):
 	else:
 		velocity.y = move_toward(velocity.y, 0, friction * delta)
 	
-	var camera_top = get_viewport().get_camera_2d().global_position.y - get_viewport_rect().size.y / 2.0
-	if global_position.y > camera_top + top_offset:
-		global_position.y = camera_top + top_offset
+	#var camera_top = get_viewport().get_camera_2d().global_position.y - get_viewport_rect().size.y / 2.0
+	#if global_position.y > camera_top + top_offset:
+		#global_position.y = camera_top + top_offset
+		
+	var min_y_pos = 0
+	if global_position.y > min_y_pos + top_offset:
+		global_position.y = min_y_pos + top_offset
 	
 	move_and_slide()
 
@@ -93,6 +97,7 @@ func _on_grab_pressed():
 				held_block.set_collision_layer_value(3, false)
 				held_block.set_collision_layer_value(4, true)
 				held_block.set_collision_mask_value(2, false)
+				held_block.freeze = false
 				#held_block.lock_rotation = true
 				
 				# Create the joint

@@ -1,9 +1,9 @@
 [gd_resource type="TileSet" load_steps=3 format=3 uid="uid://b4dyg6xs3awni"]
 
-[ext_resource type="Texture2D" uid="uid://cfwsl8htfgoi2" path="res://assets/art/environment/tilesets/kenney_industrial_tilemap.png" id="1_xw4q3"]
+[ext_resource type="Texture2D" uid="uid://cfwsl8htfgoi2" path="res://assets/art/environment/tilesets/kenney_industrial_tilemap.png" id="1_7ogqh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xw4q3"]
-texture = ExtResource("1_xw4q3")
+texture = ExtResource("1_7ogqh")
 texture_region_size = Vector2i(18, 18)
 0:0/0 = 0
 0:0/0/terrain_set = 0

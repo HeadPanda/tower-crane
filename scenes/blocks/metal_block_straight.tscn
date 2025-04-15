@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://bwnd02hm5o51i" path="res://assets/audio/COINS_~2.WAV" id="2_a2842"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2842"]
-size = Vector2(67, 14)
+size = Vector2(69, 16)
 
 [node name="MetalBlockStraight" instance=ExtResource("1_ul6sl")]
 

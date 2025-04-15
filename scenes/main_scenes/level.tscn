@@ -6,9 +6,6 @@
 
 [node name="Level" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(320, 178)
-
 [node name="Background" type="Node2D" parent="."]
 
 [node name="Main" type="Node2D" parent="."]
