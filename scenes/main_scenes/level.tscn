@@ -45,6 +45,12 @@ position = Vector2(563, 227)
 [node name="BlockSpawner2" parent="Main/BlockSpawners" instance=ExtResource("4_vjt8f")]
 position = Vector2(75, 227)
 
+[node name="BlockSpawner3" parent="Main/BlockSpawners" instance=ExtResource("4_vjt8f")]
+position = Vector2(563, -6)
+
+[node name="BlockSpawner4" parent="Main/BlockSpawners" instance=ExtResource("4_vjt8f")]
+position = Vector2(75, -6)
+
 [node name="Foreground" type="Node2D" parent="."]
 
 [connection signal="body_shape_entered" from="Main/Blocks/MetalBlockStraight2" to="Main/Blocks/MetalBlockStraight2" method="_on_body_shape_entered"]

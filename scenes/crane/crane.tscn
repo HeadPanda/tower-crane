@@ -251,3 +251,9 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChainContainer/Hook/GrabArea"]
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_a0dwg")
+
+[node name="RotateTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="RotateTimer" to="." method="_on_rotate_timer_timeout"]

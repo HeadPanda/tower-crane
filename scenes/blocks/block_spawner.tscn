@@ -9,6 +9,7 @@ size = Vector2(150, 102)
 [node name="BlockSpawner" type="Node2D"]
 script = ExtResource("1_q70j1")
 block_types = Array[PackedScene]([ExtResource("2_jfi4h")])
+rotations = Array[float]([0.0, 45.0, 90.0, 180.0, 270.0, -45.0, -90.0, -180.0])
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 16
@@ -19,6 +20,5 @@ shape = SubResource("RectangleShape2D_0npo0")
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 2.0
-autostart = true
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

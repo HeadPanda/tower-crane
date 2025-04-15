@@ -19,17 +19,19 @@ extends CharacterBody2D
 var direction : Vector2
 var held_block : RigidBody2D
 var joint: PinJoint2D
+var is_rotating := false
 
 @onready var grab_area: Area2D = %GrabArea
 @onready var hook: RigidBody2D = %Hook
 @onready var chains: Node2D = $ChainContainer/Chains
+@onready var rotate_timer: Timer = $RotateTimer
 
 
 func _ready() -> void:
 	for child in chains.get_children():
 		if child is PinJoint2D:
 			child.softness = chain_softness
-
+	rotate_timer.wait_time = release_delay * 2.5
 
 func _physics_process(delta: float) -> void:
 	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -40,13 +42,13 @@ func _physics_process(delta: float) -> void:
 	
 	if held_block:
 		if Input.is_action_pressed("rotate_left"):
+			rotate_timer.stop()
 			rotate_around_hook(-rotation_amount)
 		elif Input.is_action_pressed("rotate_right"):
+			rotate_timer.stop()
 			rotate_around_hook(rotation_amount)
 		elif Input.is_action_just_released("rotate_left") or Input.is_action_just_released("rotate_right"):
-			await get_tree().create_timer(release_delay * 2).timeout
-			if held_block:
-				held_block.lock_rotation = false
+			rotate_timer.start()
 
 
 func apply_movement(delta: float):
@@ -92,12 +94,14 @@ func _on_grab_pressed():
 			joint.queue_free()
 			joint = null
 		
-		await get_tree().create_timer(release_delay).timeout
-		held_block.set_collision_layer_value(3, true)
-		held_block.set_collision_layer_value(4, false)
-		held_block.set_collision_mask_value(2, true)
-		held_block.lock_rotation = false
+		var cached_block = held_block
 		held_block = null
+		await get_tree().create_timer(release_delay).timeout
+		cached_block.set_collision_layer_value(3, true)
+		cached_block.set_collision_layer_value(4, false)
+		cached_block.set_collision_mask_value(2, true)
+		cached_block.lock_rotation = false
+		cached_block = null
 	else:
 		for body in grab_area.get_overlapping_bodies():
 			if body.is_in_group("Blocks"):
@@ -117,3 +121,9 @@ func _on_grab_pressed():
 				joint.node_b = held_block.get_path()
 				hook.add_child(joint)
 				break
+
+
+func _on_rotate_timer_timeout() -> void:
+	print("release")
+	if held_block != null:
+		held_block.lock_rotation = false
