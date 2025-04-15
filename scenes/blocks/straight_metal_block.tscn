@@ -9,7 +9,7 @@ size = Vector2(69, 14)
 
 [node name="StraightMetalBlock" type="RigidBody2D" groups=["Blocks"]]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 15
 mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_o0bwp")
 linear_damp = 1.0
