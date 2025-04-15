@@ -3,11 +3,11 @@ extends CharacterBody2D
 
 
 @export_group("Crane Control")
-@export var speed := 200.0
-@export var acceleration := 50.0
-@export var friction := 900
+@export var speed := 175.0
+@export var acceleration := 75.0
+@export var friction := 800.0
 @export var top_offset := 8
-@export var rotation_amount := 1.0
+@export var rotation_amount := 2.0
 @export var release_delay: float = 0.5
 
 @export_group("Chains")

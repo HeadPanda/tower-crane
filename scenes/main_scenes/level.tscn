@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=4 uid="uid://bme2vha657mry"]
 
 [ext_resource type="TileSet" uid="uid://b4dyg6xs3awni" path="res://resources/tilesets/level_tileset.tres" id="1_k2ry8"]
-[ext_resource type="PackedScene" uid="uid://c4g6v2v3lify2" path="res://scenes/blocks/straight_metal_block.tscn" id="2_d028h"]
 [ext_resource type="PackedScene" uid="uid://6dkng1ng3h57" path="res://scenes/crane/crane.tscn" id="2_t0hj8"]
+[ext_resource type="PackedScene" uid="uid://1unhserf3qh8" path="res://scenes/blocks/metal_block_straight.tscn" id="3_t0hj8"]
 
 [node name="Level" type="Node2D"]
 
@@ -17,22 +17,29 @@ position = Vector2(320, 178)
 tile_map_data = PackedByteArray("AAAWABMAAQACAAEAAAAVABMAAQACAAEAAAAUABMAAQACAAEAAAATABMAAQACAAEAAAASABMAAQACAAEAAAARABMAAQACAAEAAAAQABMAAQACAAEAAAAPABMAAQACAAEAAAAOABMAAQACAAEAAAAWABkAAQACAAMAAAAWABgAAQACAAIAAAAWABcAAQACAAIAAAAWABYAAQACAAIAAAAWABUAAQACAAIAAAAWABQAAQACAAIAAAAVABkAAQACAAMAAAAVABgAAQACAAIAAAAVABcAAQACAAIAAAAVABYAAQACAAIAAAAVABUAAQACAAIAAAAVABQAAQACAAIAAAAUABkAAQACAAMAAAAUABgAAQACAAIAAAAUABcAAQACAAIAAAAUABYAAQACAAIAAAAUABUAAQACAAIAAAAUABQAAQACAAIAAAATABkAAQACAAMAAAATABgAAQACAAIAAAATABcAAQACAAIAAAATABYAAQACAAIAAAATABUAAQACAAIAAAATABQAAQACAAIAAAASABkAAQACAAMAAAASABgAAQACAAIAAAASABcAAQACAAIAAAASABYAAQACAAIAAAASABUAAQACAAIAAAASABQAAQACAAIAAAARABkAAQACAAMAAAARABgAAQACAAIAAAARABcAAQACAAIAAAARABYAAQACAAIAAAARABUAAQACAAIAAAARABQAAQACAAIAAAAQABkAAQACAAMAAAAQABgAAQACAAIAAAAQABcAAQACAAIAAAAQABYAAQACAAIAAAAQABUAAQACAAIAAAAQABQAAQACAAIAAAAPABkAAQACAAMAAAAPABgAAQACAAIAAAAPABcAAQACAAIAAAAPABYAAQACAAIAAAAPABUAAQACAAIAAAAPABQAAQACAAIAAAAOABkAAQACAAMAAAAOABgAAQACAAIAAAAOABcAAQACAAIAAAAOABYAAQACAAIAAAAOABUAAQACAAIAAAAOABQAAQACAAIAAAA=")
 tile_set = ExtResource("1_k2ry8")
 
+[node name="Blocks" type="Node2D" parent="Main"]
+
+[node name="MetalBlockStraight2" parent="Main/Blocks" instance=ExtResource("3_t0hj8")]
+position = Vector2(271, 305)
+rotation = 1.57079
+max_contacts_reported = 5
+
+[node name="MetalBlockStraight3" parent="Main/Blocks" instance=ExtResource("3_t0hj8")]
+position = Vector2(322, 305)
+rotation = 1.57079
+max_contacts_reported = 5
+
+[node name="MetalBlockStraight" parent="Main/Blocks" instance=ExtResource("3_t0hj8")]
+position = Vector2(299, 261)
+max_contacts_reported = 5
+
 [node name="Player" type="Node2D" parent="Main"]
 
 [node name="Crane" parent="Main/Player" instance=ExtResource("2_t0hj8")]
 position = Vector2(328, -231)
 
-[node name="Blocks" type="Node2D" parent="Main"]
-
-[node name="Block" parent="Main/Blocks" instance=ExtResource("2_d028h")]
-position = Vector2(304, 305)
-rotation = 1.60247
-
-[node name="Block3" parent="Main/Blocks" instance=ExtResource("2_d028h")]
-position = Vector2(363, 305)
-rotation = 1.60247
-
-[node name="Block2" parent="Main/Blocks" instance=ExtResource("2_d028h")]
-position = Vector2(343, 258)
-
 [node name="Foreground" type="Node2D" parent="."]
+
+[connection signal="body_shape_entered" from="Main/Blocks/MetalBlockStraight2" to="Main/Blocks/MetalBlockStraight2" method="_on_body_shape_entered"]
+[connection signal="body_shape_entered" from="Main/Blocks/MetalBlockStraight3" to="Main/Blocks/MetalBlockStraight3" method="_on_body_shape_entered"]
+[connection signal="body_shape_entered" from="Main/Blocks/MetalBlockStraight" to="Main/Blocks/MetalBlockStraight" method="_on_body_shape_entered"]

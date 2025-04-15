@@ -1,24 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4g6v2v3lify2"]
+[gd_scene load_steps=4 format=3 uid="uid://utmw5fssx0wo"]
 
 [ext_resource type="TileSet" uid="uid://dkg26f43losvb" path="res://resources/tilesets/block_tileset.tres" id="1_7fut1"]
+[ext_resource type="Script" uid="uid://d3nbqs26d5gn6" path="res://scenes/blocks/block.gd" id="1_524ei"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o0bwp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fut1"]
-size = Vector2(69, 14)
-
-[node name="StraightMetalBlock" type="RigidBody2D" groups=["Blocks"]]
+[node name="Block" type="RigidBody2D" groups=["Blocks"]]
 collision_layer = 4
 collision_mask = 15
 mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_o0bwp")
+contact_monitor = true
+max_contacts_reported = 3
 linear_damp = 1.0
 angular_damp = 2.0
+script = ExtResource("1_524ei")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_7fut1")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-position = Vector2(0, 8)
-tile_map_data = PackedByteArray(0, 0, 254, 255, 255, 255, 1, 0, 4, 0, 0, 0, 0, 0, 255, 255, 255, 255, 1, 0, 5, 0, 0, 0, 0, 0, 0, 0, 255, 255, 1, 0, 5, 0, 0, 0, 0, 0, 1, 0, 255, 255, 1, 0, 6, 0, 0, 0, 0, 0)
 tile_set = ExtResource("1_7fut1")
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+
+[node name="SFXTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
