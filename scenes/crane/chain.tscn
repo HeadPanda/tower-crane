@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddybr61ejeonp"]
+
+[ext_resource type="Texture2D" uid="uid://6bnu4c8nmknq" path="res://assets/art/crane/tile_0024.png" id="1_0re3r"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qnfv4"]
+radius = 4.0
+height = 18.0
+
+[node name="Chain" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 5
+mass = 0.5
+gravity_scale = 2.0
+linear_damp = 1.0
+angular_damp = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0re3r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CapsuleShape2D_qnfv4")
