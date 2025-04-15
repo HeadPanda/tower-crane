@@ -4,11 +4,14 @@ extends CharacterBody2D
 
 @export_group("Crane Control")
 @export var speed := 200.0
-@export var acceleration := 75.0
+@export var acceleration := 100.0
 @export var friction := 800.0
 @export var top_offset := 8
 @export var rotation_amount := 2.0
 @export var release_delay: float = 0.5
+@export var min_y_pos := 0
+@export var min_x_pos := 0
+@export var max_x_pos := 640
 
 @export_group("Chains")
 @export var chain_softness: float = 0.03
@@ -61,9 +64,14 @@ func apply_movement(delta: float):
 	#if global_position.y > camera_top + top_offset:
 		#global_position.y = camera_top + top_offset
 		
-	var min_y_pos = 0
 	if global_position.y > min_y_pos + top_offset:
 		global_position.y = min_y_pos + top_offset
+	
+	if global_position.x < min_x_pos:
+		global_position.x = min_x_pos
+	
+	if global_position.x > max_x_pos:
+		global_position.x = max_x_pos
 	
 	move_and_slide()
 
