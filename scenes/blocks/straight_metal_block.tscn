@@ -16,9 +16,9 @@ linear_damp = 1.0
 angular_damp = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -9)
 shape = SubResource("RectangleShape2D_7fut1")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(0, 8)
 tile_map_data = PackedByteArray(0, 0, 254, 255, 255, 255, 1, 0, 4, 0, 0, 0, 0, 0, 255, 255, 255, 255, 1, 0, 5, 0, 0, 0, 0, 0, 0, 0, 255, 255, 1, 0, 5, 0, 0, 0, 0, 0, 1, 0, 255, 255, 1, 0, 6, 0, 0, 0, 0, 0)
 tile_set = ExtResource("1_7fut1")
