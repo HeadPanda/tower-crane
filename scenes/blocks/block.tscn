@@ -1,9 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://utmw5fssx0wo"]
+[gd_scene load_steps=5 format=3 uid="uid://utmw5fssx0wo"]
 
 [ext_resource type="TileSet" uid="uid://dkg26f43losvb" path="res://resources/tilesets/block_tileset.tres" id="1_7fut1"]
 [ext_resource type="Script" uid="uid://d3nbqs26d5gn6" path="res://scenes/blocks/block.gd" id="1_524ei"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o0bwp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_524ei"]
+size = Vector2(61, 22)
 
 [node name="Block" type="RigidBody2D" groups=["Blocks"]]
 collision_layer = 4
@@ -25,5 +28,13 @@ tile_set = ExtResource("1_7fut1")
 
 [node name="SFXTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="BlockDetectionArea" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlockDetectionArea"]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_524ei")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

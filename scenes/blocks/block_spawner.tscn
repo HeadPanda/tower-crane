@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://smsai3kmcuqh"]
+
+[ext_resource type="Script" uid="uid://dhnxlkfddfg8c" path="res://scenes/blocks/block_spawner.gd" id="1_q70j1"]
+[ext_resource type="PackedScene" uid="uid://1unhserf3qh8" path="res://scenes/blocks/metal_block_straight.tscn" id="2_jfi4h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0npo0"]
+size = Vector2(150, 102)
+
+[node name="BlockSpawner" type="Node2D"]
+script = ExtResource("1_q70j1")
+block_types = Array[PackedScene]([ExtResource("2_jfi4h")])
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 102
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_0npo0")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

@@ -82,6 +82,9 @@ rotate_right={
 2d_physics/layer_2="Crane"
 2d_physics/layer_3="Blocks"
 2d_physics/layer_4="AttachedBlock"
+2d_physics/layer_5="SpawnArea"
+2d_physics/layer_6="CraneChain"
+2d_physics/layer_7="BlockDetectionArea"
 
 [rendering]
 
