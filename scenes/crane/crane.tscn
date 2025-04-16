@@ -275,6 +275,7 @@ pitch_scale = 0.4
 bus = &"SFX"
 
 [node name="AttachSFX" type="AudioStreamPlayer2D" parent="SFX"]
+position = Vector2(0, 311)
 stream = ExtResource("7_0cdm1")
 volume_db = -15.0
 bus = &"SFX"

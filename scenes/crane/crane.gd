@@ -38,7 +38,7 @@ func _ready() -> void:
 	for child in chains.get_children():
 		if child is PinJoint2D:
 			child.softness = chain_softness
-	rotate_timer.wait_time = release_delay * 2.5
+	rotate_timer.wait_time = release_delay * 3.0
 
 func _physics_process(delta: float) -> void:
 	var prev_direction_x = direction.x

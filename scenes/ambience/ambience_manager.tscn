@@ -12,17 +12,36 @@ colors = PackedColorArray(0.0911364, 0.0626968, 0.143656, 1, 0.249321, 0.227849,
 
 [node name="AmbienceManager" type="Node2D"]
 script = ExtResource("1_nhkmr")
-ambient_tracks_day = Array[AudioStream]([ExtResource("2_o2l6l"), ExtResource("3_jb7kt"), ExtResource("4_137pv")])
-ambient_tracks_night = Array[AudioStream]([ExtResource("5_137pv")])
 day_night_gradient = SubResource("Gradient_jb7kt")
-
-[node name="AmbientPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(1, 0.9945, 0.97, 0.592157)
 energy = 0.25
+
+[node name="AmbientTracksDay" type="Node2D" parent="."]
+
+[node name="BirdPark" type="AudioStreamPlayer" parent="AmbientTracksDay"]
+stream = ExtResource("2_o2l6l")
+volume_db = -20.0
+bus = &"Ambience"
+
+[node name="CaveWind" type="AudioStreamPlayer" parent="AmbientTracksDay"]
+stream = ExtResource("3_jb7kt")
+bus = &"Ambience"
+
+[node name="Wind" type="AudioStreamPlayer" parent="AmbientTracksDay"]
+stream = ExtResource("4_137pv")
+volume_db = 12.0
+bus = &"Ambience"
+
+[node name="AmbientTracksNight" type="Node2D" parent="."]
+
+[node name="NightCrickets" type="AudioStreamPlayer" parent="AmbientTracksNight"]
+stream = ExtResource("5_137pv")
+volume_db = -5.0
+bus = &"Ambience"
 
 [connection signal="day" from="." to="." method="_on_day"]
 [connection signal="night" from="." to="." method="_on_night"]
