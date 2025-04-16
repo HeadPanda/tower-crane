@@ -1,0 +1,18 @@
+[gd_scene load_steps=7 format=3 uid="uid://cp1mkyswu7kie"]
+
+[ext_resource type="Script" uid="uid://c50hr1nlpy2w5" path="res://scenes/ambience/ambience_manager.gd" id="1_nhkmr"]
+[ext_resource type="AudioStream" uid="uid://bn4w0d0qxjf5b" path="res://assets/audio/ambience/bird-park-ambience-74610.mp3" id="2_o2l6l"]
+[ext_resource type="AudioStream" uid="uid://cxdh6p0ltlf51" path="res://assets/audio/ambience/cavewind-ambience-271124.mp3" id="3_jb7kt"]
+[ext_resource type="AudioStream" uid="uid://c2u73056xd1ij" path="res://assets/audio/ambience/wind-ambience-14720.mp3" id="4_137pv"]
+[ext_resource type="AudioStream" uid="uid://cs38j84vcpp5" path="res://assets/audio/ambience/night-ambience-17064.mp3" id="5_137pv"]
+[ext_resource type="AudioStream" uid="uid://dxg34lvans33" path="res://assets/audio/ambience/clock-ticking-ambience-202980.mp3" id="6_xb7vj"]
+
+[node name="AmbienceManager" type="Node2D"]
+script = ExtResource("1_nhkmr")
+ambient_tracks_day = Array[AudioStream]([ExtResource("2_o2l6l"), ExtResource("3_jb7kt"), ExtResource("4_137pv")])
+ambient_tracks_night = Array[AudioStream]([ExtResource("5_137pv")])
+independent_random_ambient_tracks = Array[AudioStream]([ExtResource("6_xb7vj")])
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="AmbientSound" type="AudioStreamPlayer" parent="Audio"]
