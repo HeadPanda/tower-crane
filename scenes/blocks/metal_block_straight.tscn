@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://1unhserf3qh8"]
 
 [ext_resource type="PackedScene" uid="uid://utmw5fssx0wo" path="res://scenes/blocks/block.tscn" id="1_ul6sl"]
-[ext_resource type="AudioStream" uid="uid://bwnd02hm5o51i" path="res://assets/audio/COINS_~2.WAV" id="2_a2842"]
+[ext_resource type="AudioStream" uid="uid://bwnd02hm5o51i" path="res://assets/audio/sfx/impacts/COINS_~2.WAV" id="2_a2842"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2842"]
 size = Vector2(69, 16)

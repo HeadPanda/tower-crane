@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://6dkng1ng3h57"]
+[gd_scene load_steps=10 format=3 uid="uid://6dkng1ng3h57"]
 
 [ext_resource type="Texture2D" uid="uid://co4cub8wy46ub" path="res://assets/art/crane/tile_0008.png" id="1_btpkm"]
 [ext_resource type="Script" uid="uid://b6887g056x0kd" path="res://scenes/crane/crane.gd" id="1_v74g6"]
 [ext_resource type="PackedScene" uid="uid://ddybr61ejeonp" path="res://scenes/crane/chain.tscn" id="2_v74g6"]
 [ext_resource type="PackedScene" uid="uid://burpp3ejvfrqj" path="res://scenes/crane/hook.tscn" id="4_a0dwg"]
+[ext_resource type="AudioStream" uid="uid://bwi4ouwkeu86u" path="res://assets/audio/sfx/drone-fly-amp-crash-200744.mp3" id="5_0cdm1"]
+[ext_resource type="AudioStream" uid="uid://bqqhxh80nuueb" path="res://assets/audio/sfx/crane_switch.wav" id="6_0cdm1"]
+[ext_resource type="AudioStream" uid="uid://d15am4goou4yo" path="res://assets/audio/sfx/claw_attach.wav" id="7_0cdm1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0l7fd"]
 size = Vector2(7, 18)
@@ -255,5 +258,25 @@ shape = SubResource("CircleShape2D_a0dwg")
 [node name="RotateTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="MoveSFX" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("5_0cdm1")
+volume_db = -5.0
+pitch_scale = 0.2
+bus = &"SFX"
+parameters/looping = true
+
+[node name="SwitchDirectionSFX" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("6_0cdm1")
+volume_db = -20.0
+pitch_scale = 0.4
+bus = &"SFX"
+
+[node name="AttachSFX" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("7_0cdm1")
+volume_db = -15.0
+bus = &"SFX"
 
 [connection signal="timeout" from="RotateTimer" to="." method="_on_rotate_timer_timeout"]

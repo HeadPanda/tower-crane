@@ -13,6 +13,10 @@ extends CharacterBody2D
 @export var min_x_pos := 0
 @export var max_x_pos := 640
 
+@export_group("SFX")
+@export var move_sfx_speed_req := 64.0
+
+
 @export_group("Chains")
 @export var chain_softness: float = 0.03
 
@@ -25,6 +29,9 @@ var is_rotating := false
 @onready var hook: RigidBody2D = %Hook
 @onready var chains: Node2D = $ChainContainer/Chains
 @onready var rotate_timer: Timer = $RotateTimer
+@onready var move_sfx: AudioStreamPlayer2D = $SFX/MoveSFX
+@onready var switch_direction_sfx: AudioStreamPlayer2D = $SFX/SwitchDirectionSFX
+@onready var attach_sfx: AudioStreamPlayer2D = $SFX/AttachSFX
 
 
 func _ready() -> void:
@@ -34,8 +41,15 @@ func _ready() -> void:
 	rotate_timer.wait_time = release_delay * 2.5
 
 func _physics_process(delta: float) -> void:
+	var prev_direction_x = direction.x
 	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	
+	if prev_direction_x == -direction.x:
+		play_switch_sfx()
+	
 	apply_movement(delta)
+	
+	handle_play_moving_sfx()
 	
 	if Input.is_action_just_pressed("attach"):
 		_on_grab_pressed()
@@ -56,6 +70,7 @@ func apply_movement(delta: float):
 		velocity.x = move_toward(velocity.x, direction.x * speed, acceleration * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, friction * delta)
+	
 	
 	if direction.y:
 		velocity.y = move_toward(velocity.y, direction.y * speed, acceleration * delta)
@@ -87,8 +102,33 @@ func rotate_around_hook(angle_deg: float):
 	held_block.rotation += deg_to_rad(angle_deg)
 
 
+func handle_play_moving_sfx() -> void:
+	var start := 13.0
+	var end := 16.0
+	var is_moving = velocity.x >= move_sfx_speed_req or velocity.x <= -move_sfx_speed_req or velocity.y >= move_sfx_speed_req or velocity.y <= -move_sfx_speed_req
+	
+	if is_moving and not move_sfx.playing:
+		var tween = get_tree().create_tween()
+		tween.tween_property(move_sfx, "volume_db", 1, 5.0)
+		move_sfx.play(start)
+	if not is_moving and move_sfx.playing or move_sfx.get_playback_position() >= end:
+		var tween = get_tree().create_tween()
+		tween.tween_property(move_sfx, "volume_db", -10.0, 0.25)
+		tween.tween_callback(move_sfx.stop)
+
+
+func play_switch_sfx() -> void:
+	switch_direction_sfx.volume_db = -40
+	switch_direction_sfx.stop()
+	await get_tree().create_timer(0.2).timeout
+	var tween = get_tree().create_tween()
+	tween.tween_property(switch_direction_sfx, "volume_db", -20, 0.15)
+	switch_direction_sfx.play()
+
+
 func _on_grab_pressed():
 	if held_block:
+		attach_sfx.play()
 		# Drop the block
 		if joint:
 			joint.queue_free()
@@ -105,6 +145,7 @@ func _on_grab_pressed():
 	else:
 		for body in grab_area.get_overlapping_bodies():
 			if body.is_in_group("Blocks"):
+				attach_sfx.play()
 				held_block = body
 				held_block.set_collision_layer_value(3, false)
 				held_block.set_collision_layer_value(4, true)
@@ -124,6 +165,5 @@ func _on_grab_pressed():
 
 
 func _on_rotate_timer_timeout() -> void:
-	print("release")
 	if held_block != null:
 		held_block.lock_rotation = false
