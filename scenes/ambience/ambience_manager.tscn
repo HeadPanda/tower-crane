@@ -5,14 +5,24 @@
 [ext_resource type="AudioStream" uid="uid://cxdh6p0ltlf51" path="res://assets/audio/ambience/cavewind-ambience-271124.mp3" id="3_jb7kt"]
 [ext_resource type="AudioStream" uid="uid://c2u73056xd1ij" path="res://assets/audio/ambience/wind-ambience-14720.mp3" id="4_137pv"]
 [ext_resource type="AudioStream" uid="uid://cs38j84vcpp5" path="res://assets/audio/ambience/night-ambience-17064.mp3" id="5_137pv"]
-[ext_resource type="AudioStream" uid="uid://dxg34lvans33" path="res://assets/audio/ambience/clock-ticking-ambience-202980.mp3" id="6_xb7vj"]
+
+[sub_resource type="Gradient" id="Gradient_jb7kt"]
+offsets = PackedFloat32Array(0, 0.103896, 0.207792, 0.316017, 0.593074, 1)
+colors = PackedColorArray(0.0911364, 0.0626968, 0.143656, 1, 0.249321, 0.227849, 0.299873, 1, 1, 0.627806, 0.427213, 1, 0.999722, 0.871568, 0.655459, 1, 1, 0.991615, 0.963311, 1, 0.100472, 0.0755375, 0.237756, 1)
 
 [node name="AmbienceManager" type="Node2D"]
 script = ExtResource("1_nhkmr")
 ambient_tracks_day = Array[AudioStream]([ExtResource("2_o2l6l"), ExtResource("3_jb7kt"), ExtResource("4_137pv")])
 ambient_tracks_night = Array[AudioStream]([ExtResource("5_137pv")])
-independent_random_ambient_tracks = Array[AudioStream]([ExtResource("6_xb7vj")])
+day_night_gradient = SubResource("Gradient_jb7kt")
 
-[node name="Audio" type="Node2D" parent="."]
+[node name="AmbientPlayer" type="AudioStreamPlayer" parent="."]
 
-[node name="AmbientSound" type="AudioStreamPlayer" parent="Audio"]
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(1, 0.9945, 0.97, 0.592157)
+energy = 0.25
+
+[connection signal="day" from="." to="." method="_on_day"]
+[connection signal="night" from="." to="." method="_on_night"]

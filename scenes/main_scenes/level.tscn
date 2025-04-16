@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=4 uid="uid://bme2vha657mry"]
+[gd_scene load_steps=6 format=4 uid="uid://bme2vha657mry"]
 
 [ext_resource type="TileSet" uid="uid://b4dyg6xs3awni" path="res://resources/tilesets/level_tileset.tres" id="1_k2ry8"]
+[ext_resource type="PackedScene" uid="uid://cp1mkyswu7kie" path="res://scenes/ambience/ambience_manager.tscn" id="1_o3fsm"]
 [ext_resource type="PackedScene" uid="uid://6dkng1ng3h57" path="res://scenes/crane/crane.tscn" id="2_t0hj8"]
 [ext_resource type="PackedScene" uid="uid://1unhserf3qh8" path="res://scenes/blocks/metal_block_straight.tscn" id="3_t0hj8"]
 [ext_resource type="PackedScene" uid="uid://smsai3kmcuqh" path="res://scenes/blocks/block_spawner.tscn" id="4_vjt8f"]
 
 [node name="Level" type="Node2D"]
+
+[node name="AmbienceManager" parent="." instance=ExtResource("1_o3fsm")]
 
 [node name="Background" type="Node2D" parent="."]
 
