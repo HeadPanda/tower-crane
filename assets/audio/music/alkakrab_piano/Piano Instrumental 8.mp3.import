@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ukgehnti6tr4"
+path="res://.godot/imported/Piano Instrumental 8.mp3-9b01f6af3f96c98784d74333193e9cab.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/alkakrab_piano/Piano Instrumental 8.mp3"
+dest_files=["res://.godot/imported/Piano Instrumental 8.mp3-9b01f6af3f96c98784d74333193e9cab.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

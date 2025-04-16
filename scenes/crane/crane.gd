@@ -122,7 +122,7 @@ func play_switch_sfx() -> void:
 	switch_direction_sfx.stop()
 	await get_tree().create_timer(0.2).timeout
 	var tween = get_tree().create_tween()
-	tween.tween_property(switch_direction_sfx, "volume_db", -20, 0.15)
+	tween.tween_property(switch_direction_sfx, "volume_db", -30, 0.15)
 	switch_direction_sfx.play()
 
 

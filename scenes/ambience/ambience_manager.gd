@@ -9,9 +9,14 @@ enum Time_States {
 	NIGHT
 }
 
+@export_group("Audio")
+@export var music_tracks_day: Array[AudioStream]
+@export var music_tracks_night: Array[AudioStream]
+@export_range(0, 1.0, 0.05) var chance_to_play_music: float = 0.50
+
 @export_group("Day Night Cycle")
 @export var day_night_gradient: Gradient
-@export var day_length_minutes := 0.5
+@export var day_length_minutes := 3.0
 @export var day_start := 0.2
 @export var day_end := 0.75
 
@@ -24,12 +29,12 @@ var current_track: AudioStreamPlayer = null:
 				current_track.volume_db = current_track_base_vol
 			current_track = value
 			current_track_base_vol = value.volume_db
-			print("track: ", current_track, current_track_base_vol)
 var current_track_base_vol: float = 0.0
 
 @onready var day_modulator: CanvasModulate = $CanvasModulate
 @onready var ambient_tracks_day: Array[Node] = $AmbientTracksDay.get_children()
 @onready var ambient_tracks_night: Array[Node] = $AmbientTracksNight.get_children()
+@onready var music_player: AudioStreamPlayer = $MusicPlayer
 
 
 func _process(delta: float) -> void:
@@ -65,6 +70,8 @@ func play_ambience() -> void:
 
 
 func fade_in_audio(audio_player: AudioStreamPlayer, start_vol: float = -5.0, end_vol: float = 0, time: float = 5.0) -> void:
+	if audio_player is not AudioStreamPlayer:
+		return
 	var tween = get_tree().create_tween()
 	audio_player.volume_db = start_vol
 	audio_player.play()
@@ -82,9 +89,29 @@ func fade_out_audio(audio_player: AudioStreamPlayer, end_vol: float = -50.0, tim
 		callback.call()
 
 
+func play_music_randomly() -> void:
+	reset_music_player()
+	if randf() <= chance_to_play_music:
+		var is_day = current_time_state == Time_States.DAY
+		var track_list: Array[AudioStream] = music_tracks_day if is_day else music_tracks_night
+		
+		if track_list.size() > 0:
+			var new_track = track_list.pick_random()
+			music_player.stream = new_track
+			fade_in_audio(music_player, -50.0, 0, 10.0)
+
+
+func reset_music_player() -> void:
+	music_player.stop()
+	music_player.stream = null
+	music_player.volume_db = 0
+
+
 func _on_day() -> void:
 	fade_out_audio(current_track, -80.0, 5.0, play_ambience)
+	fade_out_audio(music_player, -50.0, 10.0, play_music_randomly)
 
 
 func _on_night() -> void:
 	fade_out_audio(current_track, -80.0, 5.0, play_ambience)
+	fade_out_audio(music_player, -50.0, 10.0, play_music_randomly)

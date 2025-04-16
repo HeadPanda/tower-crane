@@ -1,10 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://cp1mkyswu7kie"]
+[gd_scene load_steps=15 format=3 uid="uid://cp1mkyswu7kie"]
 
 [ext_resource type="Script" uid="uid://c50hr1nlpy2w5" path="res://scenes/ambience/ambience_manager.gd" id="1_nhkmr"]
 [ext_resource type="AudioStream" uid="uid://bn4w0d0qxjf5b" path="res://assets/audio/ambience/bird-park-ambience-74610.mp3" id="2_o2l6l"]
 [ext_resource type="AudioStream" uid="uid://cxdh6p0ltlf51" path="res://assets/audio/ambience/cavewind-ambience-271124.mp3" id="3_jb7kt"]
 [ext_resource type="AudioStream" uid="uid://c2u73056xd1ij" path="res://assets/audio/ambience/wind-ambience-14720.mp3" id="4_137pv"]
 [ext_resource type="AudioStream" uid="uid://cs38j84vcpp5" path="res://assets/audio/ambience/night-ambience-17064.mp3" id="5_137pv"]
+[ext_resource type="AudioStream" uid="uid://djp3jo0ch8djd" path="res://assets/audio/music/alkakrab_piano/Piano Instrumental 1.mp3" id="6_sij5o"]
+[ext_resource type="AudioStream" uid="uid://citqwao3lnfop" path="res://assets/audio/music/alkakrab_piano/Piano Instrumental 4.mp3" id="7_6kj07"]
+[ext_resource type="AudioStream" uid="uid://ca4taa8dyiipm" path="res://assets/audio/music/alkakrab_piano/Piano Instrumental 2.mp3" id="7_o64vd"]
+[ext_resource type="AudioStream" uid="uid://orgb2nno2ns1" path="res://assets/audio/music/alkakrab_piano/Piano Instrumental 5.mp3" id="8_1eupf"]
+[ext_resource type="AudioStream" uid="uid://dorgd6bm3o8vm" path="res://assets/audio/music/alkakrab_piano/Piano Instrumental 3.mp3" id="8_42mr0"]
+[ext_resource type="AudioStream" uid="uid://tarytukaq0ns" path="res://assets/audio/music/alkakrab_piano/Piano Instrumental 7.mp3" id="9_1o7ic"]
+[ext_resource type="AudioStream" uid="uid://d16jdk4fst10x" path="res://assets/audio/music/alkakrab_piano/Piano Instrumental 6.mp3" id="9_o64vd"]
+[ext_resource type="AudioStream" uid="uid://ukgehnti6tr4" path="res://assets/audio/music/alkakrab_piano/Piano Instrumental 8.mp3" id="10_42mr0"]
 
 [sub_resource type="Gradient" id="Gradient_jb7kt"]
 offsets = PackedFloat32Array(0, 0.103896, 0.207792, 0.316017, 0.593074, 1)
@@ -12,6 +20,8 @@ colors = PackedColorArray(0.0911364, 0.0626968, 0.143656, 1, 0.249321, 0.227849,
 
 [node name="AmbienceManager" type="Node2D"]
 script = ExtResource("1_nhkmr")
+music_tracks_day = Array[AudioStream]([ExtResource("6_sij5o"), ExtResource("7_6kj07"), ExtResource("8_1eupf"), ExtResource("9_o64vd"), ExtResource("10_42mr0")])
+music_tracks_night = Array[AudioStream]([ExtResource("7_o64vd"), ExtResource("8_42mr0"), ExtResource("9_1o7ic")])
 day_night_gradient = SubResource("Gradient_jb7kt")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -29,19 +39,28 @@ bus = &"Ambience"
 
 [node name="CaveWind" type="AudioStreamPlayer" parent="AmbientTracksDay"]
 stream = ExtResource("3_jb7kt")
+volume_db = -5.0
 bus = &"Ambience"
 
 [node name="Wind" type="AudioStreamPlayer" parent="AmbientTracksDay"]
 stream = ExtResource("4_137pv")
-volume_db = 12.0
+volume_db = 10.0
 bus = &"Ambience"
 
 [node name="AmbientTracksNight" type="Node2D" parent="."]
+
+[node name="WindNight" type="AudioStreamPlayer" parent="AmbientTracksNight"]
+stream = ExtResource("4_137pv")
+volume_db = 10.0
+bus = &"Ambience"
 
 [node name="NightCrickets" type="AudioStreamPlayer" parent="AmbientTracksNight"]
 stream = ExtResource("5_137pv")
 volume_db = -5.0
 bus = &"Ambience"
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
 
 [connection signal="day" from="." to="." method="_on_day"]
 [connection signal="night" from="." to="." method="_on_night"]

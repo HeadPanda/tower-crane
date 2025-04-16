@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dorgd6bm3o8vm"
+path="res://.godot/imported/Piano Instrumental 3.mp3-dc6a1a8858d002b05e1b8b7c4bcc9493.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/alkakrab_piano/Piano Instrumental 3.mp3"
+dest_files=["res://.godot/imported/Piano Instrumental 3.mp3-dc6a1a8858d002b05e1b8b7c4bcc9493.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
