@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://smsai3kmcuqh" path="res://scenes/blocks/block_spawner.tscn" id="4_vjt8f"]
 
 [sub_resource type="Gradient" id="Gradient_o3fsm"]
-offsets = PackedFloat32Array(0, 0.340807, 0.488789, 0.623318, 0.793722, 0.90583, 1)
+offsets = PackedFloat32Array(0, 0.340807, 0.488789, 0.623318, 0.793722, 0.914798, 0.991031)
 colors = PackedColorArray(6.44952e-06, 0.630656, 0.834462, 1, 0.307577, 0.792165, 1, 1, 0, 0.631373, 0.835294, 1, 0.274731, 0.325032, 0.638698, 1, 0.115514, 2.59906e-06, 0.554659, 1, 0.0131758, 1.98539e-07, 0.158858, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_4rgqo"]
@@ -54,10 +54,13 @@ offset_top = -6428.0
 offset_right = 960.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/separation = -8
 
 [node name="Space" type="TextureRect" parent="Background/Backgrounds/BackgroundContainer"]
+custom_minimum_size = Vector2(1920, 3240)
 layout_mode = 2
 texture = ExtResource("2_4rgqo")
+stretch_mode = 1
 
 [node name="BlueSky" type="TextureRect" parent="Background/Backgrounds/BackgroundContainer"]
 modulate = Color(1, 1, 1, 0.94902)
