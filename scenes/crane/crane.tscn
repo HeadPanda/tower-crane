@@ -19,6 +19,7 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_v74g6")
 rotation_amount = 1.5
+chain_softness = 0.02
 metadata/_edit_vertical_guides_ = [643.0]
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -51,7 +52,10 @@ angular_limit_upper = 1.5708
 [node name="Chains" type="Node2D" parent="ChainContainer"]
 
 [node name="Chain" parent="ChainContainer/Chains" instance=ExtResource("2_v74g6")]
-position = Vector2(0, 18)
+position = Vector2(0, 17)
+gravity_scale = 1.0
+linear_damp = 1.5
+angular_damp = 1.5
 
 [node name="PinJoint2D2" type="PinJoint2D" parent="ChainContainer/Chains"]
 position = Vector2(0, 29)
@@ -63,7 +67,10 @@ angular_limit_lower = -1.5708
 angular_limit_upper = 1.5708
 
 [node name="Chain2" parent="ChainContainer/Chains" instance=ExtResource("2_v74g6")]
-position = Vector2(0, 36)
+position = Vector2(0, 35)
+gravity_scale = 1.0
+linear_damp = 1.5
+angular_damp = 1.5
 
 [node name="PinJoint2D3" type="PinJoint2D" parent="ChainContainer/Chains"]
 position = Vector2(0, 47)
@@ -75,7 +82,10 @@ angular_limit_lower = -1.5708
 angular_limit_upper = 1.5708
 
 [node name="Chain3" parent="ChainContainer/Chains" instance=ExtResource("2_v74g6")]
-position = Vector2(0, 54)
+position = Vector2(0, 53)
+gravity_scale = 1.0
+linear_damp = 1.5
+angular_damp = 1.5
 
 [node name="PinJoint2D4" type="PinJoint2D" parent="ChainContainer/Chains"]
 position = Vector2(0, 65)
@@ -87,7 +97,10 @@ angular_limit_lower = -1.5708
 angular_limit_upper = 1.5708
 
 [node name="Chain4" parent="ChainContainer/Chains" instance=ExtResource("2_v74g6")]
-position = Vector2(0, 72)
+position = Vector2(0, 71)
+gravity_scale = 1.0
+linear_damp = 1.5
+angular_damp = 1.5
 
 [node name="PinJoint2D5" type="PinJoint2D" parent="ChainContainer/Chains"]
 position = Vector2(0, 81)
@@ -99,7 +112,10 @@ angular_limit_lower = -1.5708
 angular_limit_upper = 1.5708
 
 [node name="Chain5" parent="ChainContainer/Chains" instance=ExtResource("2_v74g6")]
-position = Vector2(0, 90)
+position = Vector2(0, 89)
+gravity_scale = 1.0
+linear_damp = 1.5
+angular_damp = 1.5
 
 [node name="PinJoint2D6" type="PinJoint2D" parent="ChainContainer/Chains"]
 position = Vector2(0, 101)
@@ -111,7 +127,10 @@ angular_limit_lower = -1.5708
 angular_limit_upper = 1.5708
 
 [node name="Chain6" parent="ChainContainer/Chains" instance=ExtResource("2_v74g6")]
-position = Vector2(0, 108)
+position = Vector2(0, 107)
+gravity_scale = 1.0
+linear_damp = 1.5
+angular_damp = 1.5
 
 [node name="PinJoint2D7" type="PinJoint2D" parent="ChainContainer/Chains"]
 position = Vector2(0, 119)
@@ -123,7 +142,10 @@ angular_limit_lower = -1.5708
 angular_limit_upper = 1.5708
 
 [node name="Chain7" parent="ChainContainer/Chains" instance=ExtResource("2_v74g6")]
-position = Vector2(0, 126)
+position = Vector2(0, 125)
+gravity_scale = 1.0
+linear_damp = 1.5
+angular_damp = 1.5
 
 [node name="PinJoint2D8" type="PinJoint2D" parent="ChainContainer/Chains"]
 position = Vector2(0, 137)
@@ -135,7 +157,10 @@ angular_limit_lower = -1.5708
 angular_limit_upper = 1.5708
 
 [node name="Chain8" parent="ChainContainer/Chains" instance=ExtResource("2_v74g6")]
-position = Vector2(0, 144)
+position = Vector2(0, 143)
+gravity_scale = 1.0
+linear_damp = 1.5
+angular_damp = 1.5
 
 [node name="PinJoint2D9" type="PinJoint2D" parent="ChainContainer/Chains"]
 position = Vector2(0, 153)
@@ -147,7 +172,10 @@ angular_limit_lower = -1.5708
 angular_limit_upper = 1.5708
 
 [node name="Chain9" parent="ChainContainer/Chains" instance=ExtResource("2_v74g6")]
-position = Vector2(0, 162)
+position = Vector2(0, 161)
+gravity_scale = 1.0
+linear_damp = 1.5
+angular_damp = 1.5
 
 [node name="PinJoint2D10" type="PinJoint2D" parent="ChainContainer/Chains"]
 position = Vector2(0, 173)
@@ -159,7 +187,10 @@ angular_limit_lower = -1.5708
 angular_limit_upper = 1.5708
 
 [node name="Chain10" parent="ChainContainer/Chains" instance=ExtResource("2_v74g6")]
-position = Vector2(0, 180)
+position = Vector2(0, 179)
+gravity_scale = 1.0
+linear_damp = 1.5
+angular_damp = 1.5
 
 [node name="PinJoint2D11" type="PinJoint2D" parent="ChainContainer/Chains"]
 position = Vector2(0, 191)
@@ -171,7 +202,10 @@ angular_limit_lower = -1.5708
 angular_limit_upper = 1.5708
 
 [node name="Chain11" parent="ChainContainer/Chains" instance=ExtResource("2_v74g6")]
-position = Vector2(0, 198)
+position = Vector2(0, 197)
+gravity_scale = 1.0
+linear_damp = 1.5
+angular_damp = 1.5
 
 [node name="PinJoint2D12" type="PinJoint2D" parent="ChainContainer/Chains"]
 position = Vector2(0, 209)
@@ -183,7 +217,10 @@ angular_limit_lower = -1.5708
 angular_limit_upper = 1.5708
 
 [node name="Chain12" parent="ChainContainer/Chains" instance=ExtResource("2_v74g6")]
-position = Vector2(0, 216)
+position = Vector2(0, 215)
+gravity_scale = 1.0
+linear_damp = 1.5
+angular_damp = 1.5
 
 [node name="PinJoint2D13" type="PinJoint2D" parent="ChainContainer/Chains"]
 position = Vector2(0, 225)
@@ -195,7 +232,10 @@ angular_limit_lower = -1.5708
 angular_limit_upper = 1.5708
 
 [node name="Chain13" parent="ChainContainer/Chains" instance=ExtResource("2_v74g6")]
-position = Vector2(0, 234)
+position = Vector2(0, 233)
+gravity_scale = 1.0
+linear_damp = 1.5
+angular_damp = 1.5
 
 [node name="PinJoint2D14" type="PinJoint2D" parent="ChainContainer/Chains"]
 position = Vector2(0, 245)
@@ -207,7 +247,10 @@ angular_limit_lower = -1.5708
 angular_limit_upper = 1.5708
 
 [node name="Chain14" parent="ChainContainer/Chains" instance=ExtResource("2_v74g6")]
-position = Vector2(0, 252)
+position = Vector2(0, 251)
+gravity_scale = 1.0
+linear_damp = 1.5
+angular_damp = 1.5
 
 [node name="PinJoint2D15" type="PinJoint2D" parent="ChainContainer/Chains"]
 position = Vector2(0, 263)
@@ -219,7 +262,10 @@ angular_limit_lower = -1.5708
 angular_limit_upper = 1.5708
 
 [node name="Chain15" parent="ChainContainer/Chains" instance=ExtResource("2_v74g6")]
-position = Vector2(0, 270)
+position = Vector2(0, 269)
+gravity_scale = 1.0
+linear_damp = 1.5
+angular_damp = 1.5
 
 [node name="PinJoint2D16" type="PinJoint2D" parent="ChainContainer/Chains"]
 position = Vector2(0, 281)
@@ -231,7 +277,10 @@ angular_limit_lower = -1.5708
 angular_limit_upper = 1.5708
 
 [node name="Chain16" parent="ChainContainer/Chains" instance=ExtResource("2_v74g6")]
-position = Vector2(0, 288)
+position = Vector2(0, 287)
+gravity_scale = 1.0
+linear_damp = 1.5
+angular_damp = 1.5
 
 [node name="HookPinjoint" type="PinJoint2D" parent="ChainContainer"]
 position = Vector2(0, 296)
@@ -245,7 +294,7 @@ angular_limit_upper = 1.5708
 
 [node name="Hook" parent="ChainContainer" instance=ExtResource("4_a0dwg")]
 unique_name_in_owner = true
-position = Vector2(0, 306)
+position = Vector2(0, 304)
 collision_mask = 1
 
 [node name="GrabArea" type="Area2D" parent="ChainContainer/Hook"]

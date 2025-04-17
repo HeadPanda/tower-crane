@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://7878fibrts88"]
+[gd_scene load_steps=5 format=3 uid="uid://7878fibrts88"]
 
 [ext_resource type="PackedScene" uid="uid://utmw5fssx0wo" path="res://scenes/blocks/block.tscn" id="1_q60nq"]
 [ext_resource type="AudioStream" uid="uid://x23djbqfoqe5" path="res://assets/audio/sfx/impacts/brick_impact.wav" id="2_stsh8"]
-[ext_resource type="Texture2D" uid="uid://bqd63t7ssc3bb" path="res://assets/art/environment/Brickwall6_Texture.png" id="3_yelsf"]
 [ext_resource type="Texture2D" uid="uid://dmt1lqyxrh6yl" path="res://assets/art/environment/brick_texture.png" id="4_ais5u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_afcvh"]
@@ -23,18 +22,13 @@ stream = ExtResource("2_stsh8")
 pitch_scale = 0.8
 bus = &"SFX"
 
-[node name="Brick" type="Sprite2D" parent="." index="4"]
-visible = false
-scale = Vector2(0.0527344, 0.0517578)
-texture = ExtResource("3_yelsf")
-
-[node name="Sprite2D" type="Sprite2D" parent="." index="5"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="4"]
 position = Vector2(2.47748e-06, 6.85453e-07)
 scale = Vector2(1.17391, 1.13043)
 texture = ExtResource("4_ais5u")
 region_rect = Rect2(1, 1, 46, 46)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="5"]
 visible = false
 position = Vector2(0, 0.0750002)
 shape = SubResource("RectangleShape2D_afcvh")
