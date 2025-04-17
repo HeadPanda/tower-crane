@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtvrd0x6aymo8"]
+
+[ext_resource type="PackedScene" uid="uid://utmw5fssx0wo" path="res://scenes/blocks/block.tscn" id="1_7evtc"]
+[ext_resource type="AudioStream" uid="uid://bwnd02hm5o51i" path="res://assets/audio/sfx/impacts/COINS_~2.WAV" id="2_7evtc"]
+[ext_resource type="Texture2D" uid="uid://c171qupuk7i7v" path="res://assets/art/Modern_Exteriors_Complete_Tileset.png" id="3_8kvku"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bi3a4"]
+size = Vector2(26, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8drvq"]
+atlas = ExtResource("3_8kvku")
+region = Rect2(289, 353, 14, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7evtc"]
+size = Vector2(11, 22)
+
+[node name="JunkBlockBarrel" instance=ExtResource("1_7evtc")]
+mass = 1.0
+impact_threshold = 80
+
+[node name="CollisionShape2D" parent="BlockDetectionArea" index="0"]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_bi3a4")
+
+[node name="TileMapLayer" parent="." index="1"]
+position = Vector2(0, 8)
+
+[node name="SFX" parent="." index="2"]
+stream = ExtResource("2_7evtc")
+volume_db = -25.0
+pitch_scale = 0.7
+bus = &"SFX"
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="4"]
+texture = SubResource("AtlasTexture_8drvq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="5"]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_7evtc")

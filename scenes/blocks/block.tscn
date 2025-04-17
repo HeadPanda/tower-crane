@@ -27,6 +27,7 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BlockDetectionArea"]
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_524ei")
+debug_color = Color(0.643936, 0.372523, 0.926767, 0.42)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_set = ExtResource("1_7fut1")

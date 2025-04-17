@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://smsai3kmcuqh"]
+[gd_scene load_steps=13 format=3 uid="uid://smsai3kmcuqh"]
 
 [ext_resource type="Script" uid="uid://dhnxlkfddfg8c" path="res://scenes/blocks/block_spawner.gd" id="1_q70j1"]
 [ext_resource type="PackedScene" uid="uid://1unhserf3qh8" path="res://scenes/blocks/metal_blocks/metal_block_straight.tscn" id="2_jfi4h"]
@@ -7,13 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://b751fxlubghsc" path="res://scenes/blocks/metal_blocks/metal_block_t.tscn" id="5_gasr1"]
 [ext_resource type="PackedScene" uid="uid://coicobv55yy8u" path="res://scenes/blocks/metal_blocks/metal_block_u.tscn" id="6_tg8wp"]
 [ext_resource type="PackedScene" uid="uid://7878fibrts88" path="res://scenes/blocks/brick_blocks/brick_wall.tscn" id="7_gasr1"]
+[ext_resource type="PackedScene" uid="uid://g466o5i3qay3" path="res://scenes/blocks/junk_blocks/junk_block_van.tscn" id="8_tg8wp"]
+[ext_resource type="PackedScene" uid="uid://dtvrd0x6aymo8" path="res://scenes/blocks/junk_blocks/junk_block_barrel.tscn" id="9_h0q4i"]
+[ext_resource type="PackedScene" uid="uid://b321n0v252yop" path="res://scenes/blocks/junk_blocks/junk_block_bus.tscn" id="10_lnefj"]
+[ext_resource type="PackedScene" uid="uid://cr61ieu1gol6f" path="res://scenes/blocks/junk_blocks/junk_block_dumpster.tscn" id="11_uongp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0npo0"]
 size = Vector2(150, 102)
 
 [node name="BlockSpawner" type="Node2D"]
 script = ExtResource("1_q70j1")
-block_types = Array[PackedScene]([ExtResource("2_jfi4h"), ExtResource("3_0cnjw"), ExtResource("4_bkkx8"), ExtResource("5_gasr1"), ExtResource("6_tg8wp"), ExtResource("7_gasr1")])
+block_types = Array[PackedScene]([ExtResource("2_jfi4h"), ExtResource("3_0cnjw"), ExtResource("4_bkkx8"), ExtResource("5_gasr1"), ExtResource("6_tg8wp"), ExtResource("7_gasr1"), ExtResource("8_tg8wp"), ExtResource("9_h0q4i"), ExtResource("10_lnefj"), ExtResource("11_uongp")])
 rotations = Array[float]([0.0, 45.0, 90.0, 180.0, 270.0, -45.0, -90.0, -180.0, 0.0, 0.0, 0.0])
 
 [node name="Area2D" type="Area2D" parent="."]
