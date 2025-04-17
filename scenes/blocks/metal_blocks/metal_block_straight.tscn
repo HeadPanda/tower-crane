@@ -3,14 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://utmw5fssx0wo" path="res://scenes/blocks/block.tscn" id="1_ul6sl"]
 [ext_resource type="AudioStream" uid="uid://bwnd02hm5o51i" path="res://assets/audio/sfx/impacts/COINS_~2.WAV" id="2_a2842"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2842"]
-size = Vector2(69, 16)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_afcvh"]
+size = Vector2(71, 17)
 
 [node name="MetalBlockStraight" instance=ExtResource("1_ul6sl")]
-
-[node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(-0.5, -1)
-shape = SubResource("RectangleShape2D_a2842")
 
 [node name="TileMapLayer" parent="." index="1"]
 position = Vector2(0, 8)
@@ -20,3 +16,7 @@ tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 1, 0, 5, 0, 0, 0, 0, 0
 stream = ExtResource("2_a2842")
 volume_db = -25.0
 bus = &"SFX"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_afcvh")

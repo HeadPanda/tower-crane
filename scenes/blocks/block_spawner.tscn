@@ -1,14 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://smsai3kmcuqh"]
+[gd_scene load_steps=5 format=3 uid="uid://smsai3kmcuqh"]
 
 [ext_resource type="Script" uid="uid://dhnxlkfddfg8c" path="res://scenes/blocks/block_spawner.gd" id="1_q70j1"]
-[ext_resource type="PackedScene" uid="uid://1unhserf3qh8" path="res://scenes/blocks/metal_block_straight.tscn" id="2_jfi4h"]
+[ext_resource type="PackedScene" uid="uid://1unhserf3qh8" path="res://scenes/blocks/metal_blocks/metal_block_straight.tscn" id="2_jfi4h"]
+[ext_resource type="PackedScene" uid="uid://dlxu57c1cnxuf" path="res://scenes/blocks/metal_blocks/metal_block_l.tscn" id="3_0cnjw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0npo0"]
 size = Vector2(150, 102)
 
 [node name="BlockSpawner" type="Node2D"]
 script = ExtResource("1_q70j1")
-block_types = Array[PackedScene]([ExtResource("2_jfi4h")])
+block_types = Array[PackedScene]([ExtResource("2_jfi4h"), ExtResource("3_0cnjw")])
 rotations = Array[float]([0.0, 45.0, 90.0, 180.0, 270.0, -45.0, -90.0, -180.0, 0.0, 0.0, 0.0])
 
 [node name="Area2D" type="Area2D" parent="."]

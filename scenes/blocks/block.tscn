@@ -10,7 +10,7 @@ size = Vector2(61, 22)
 
 [node name="Block" type="RigidBody2D" groups=["Blocks"]]
 collision_layer = 4
-collision_mask = 15
+collision_mask = 13
 mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_o0bwp")
 contact_monitor = true
@@ -19,7 +19,13 @@ linear_damp = 1.0
 angular_damp = 2.0
 script = ExtResource("1_524ei")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="BlockDetectionArea" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlockDetectionArea"]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_524ei")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_set = ExtResource("1_7fut1")
@@ -28,13 +34,5 @@ tile_set = ExtResource("1_7fut1")
 
 [node name="SFXTimer" type="Timer" parent="."]
 one_shot = true
-
-[node name="BlockDetectionArea" type="Area2D" parent="."]
-collision_layer = 64
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BlockDetectionArea"]
-position = Vector2(-0.5, 1)
-shape = SubResource("RectangleShape2D_524ei")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

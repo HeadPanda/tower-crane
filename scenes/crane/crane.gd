@@ -139,7 +139,7 @@ func _on_grab_pressed():
 		await get_tree().create_timer(release_delay).timeout
 		cached_block.set_collision_layer_value(3, true)
 		cached_block.set_collision_layer_value(4, false)
-		cached_block.set_collision_mask_value(2, true)
+		#cached_block.set_collision_mask_value(2, true)
 		cached_block.lock_rotation = false
 		cached_block = null
 	else:
