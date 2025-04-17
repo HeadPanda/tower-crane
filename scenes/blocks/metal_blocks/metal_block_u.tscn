@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=4 uid="uid://coicobv55yy8u"]
+
+[ext_resource type="PackedScene" uid="uid://utmw5fssx0wo" path="res://scenes/blocks/block.tscn" id="1_3rb0s"]
+[ext_resource type="AudioStream" uid="uid://bwnd02hm5o51i" path="res://assets/audio/sfx/impacts/COINS_~2.WAV" id="2_iwi0m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fv8ah"]
+size = Vector2(76, 77)
+
+[node name="MetalBlockU" instance=ExtResource("1_3rb0s")]
+mass = 4.0
+
+[node name="CollisionShape2D" parent="BlockDetectionArea" index="0"]
+visible = false
+position = Vector2(0, -27.5)
+shape = SubResource("RectangleShape2D_fv8ah")
+
+[node name="TileMapLayer" parent="." index="1"]
+position = Vector2(0, 8)
+tile_map_data = PackedByteArray("AAD/////AQAFAAAAAAAAAP//AQAFAAAAAAD+////AQAEAAAAAAABAP//AQAFAAAAAAD+//7/AQAFAAAAAFD+//3/AQAFAAAAAFD+//z/AQAGAAAAAGACAPz/AQAGAAAAAGACAP3/AQAFAAAAAFACAP7/AQAFAAAAAFACAP//AQAGAAAAAAA=")
+
+[node name="SFX" parent="." index="2"]
+stream = ExtResource("2_iwi0m")
+volume_db = -25.0
+bus = &"SFX"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="4"]
+polygon = PackedVector2Array(-35, 7, 53, 7, 53, -10, 53, -63, 37, -63, 37, -10, -19, -10, -19, -63, -35, -63)

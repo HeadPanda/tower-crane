@@ -8,6 +8,9 @@ size = Vector2(71, 17)
 
 [node name="MetalBlockStraight" instance=ExtResource("1_ul6sl")]
 
+[node name="CollisionShape2D" parent="BlockDetectionArea" index="0"]
+visible = false
+
 [node name="TileMapLayer" parent="." index="1"]
 position = Vector2(0, 8)
 tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 1, 0, 5, 0, 0, 0, 0, 0, 0, 0, 255, 255, 1, 0, 5, 0, 0, 0, 0, 0, 254, 255, 255, 255, 1, 0, 4, 0, 0, 0, 0, 0, 1, 0, 255, 255, 1, 0, 6, 0, 0, 0, 0, 0)

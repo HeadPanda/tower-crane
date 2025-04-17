@@ -15,8 +15,8 @@ mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_o0bwp")
 contact_monitor = true
 max_contacts_reported = 3
-linear_damp = 1.0
-angular_damp = 2.0
+linear_damp = 4.0
+angular_damp = 6.0
 script = ExtResource("1_524ei")
 
 [node name="BlockDetectionArea" type="Area2D" parent="."]

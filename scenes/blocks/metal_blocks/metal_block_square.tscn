@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=4 uid="uid://b0177buwkgsme"]
+
+[ext_resource type="PackedScene" uid="uid://utmw5fssx0wo" path="res://scenes/blocks/block.tscn" id="1_bsb05"]
+[ext_resource type="AudioStream" uid="uid://bwnd02hm5o51i" path="res://assets/audio/sfx/impacts/COINS_~2.WAV" id="2_1gfek"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bsb05"]
+size = Vector2(76, 77)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1gfek"]
+size = Vector2(71, 71)
+
+[node name="MetalBlockSquare" instance=ExtResource("1_bsb05")]
+mass = 4.0
+
+[node name="CollisionShape2D" parent="BlockDetectionArea" index="0"]
+visible = false
+position = Vector2(0, -27.5)
+shape = SubResource("RectangleShape2D_bsb05")
+
+[node name="TileMapLayer" parent="." index="1"]
+position = Vector2(0, 8)
+tile_map_data = PackedByteArray("AAD+//z/AQAEAAAAAAD+//3/AQAFAAAAAFD+//7/AQAFAAAAAFD+////AQAEAAAAAAD/////AQAFAAAAAAAAAP//AQAFAAAAAAABAP//AQAGAAAAAAABAPz/AQAGAAAAAAABAP3/AQAFAAAAAFABAP7/AQAFAAAAAFD///z/AQAFAAAAAAAAAPz/AQAFAAAAAAA=")
+
+[node name="SFX" parent="." index="2"]
+stream = ExtResource("2_1gfek")
+volume_db = -25.0
+bus = &"SFX"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
+position = Vector2(-0.5, -28.5)
+shape = SubResource("RectangleShape2D_1gfek")
