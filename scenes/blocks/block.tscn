@@ -18,6 +18,7 @@ max_contacts_reported = 3
 linear_damp = 4.0
 angular_damp = 6.0
 script = ExtResource("1_524ei")
+impact_threshold = 50
 
 [node name="BlockDetectionArea" type="Area2D" parent="."]
 collision_layer = 64

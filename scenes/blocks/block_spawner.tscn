@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://smsai3kmcuqh"]
+[gd_scene load_steps=9 format=3 uid="uid://smsai3kmcuqh"]
 
 [ext_resource type="Script" uid="uid://dhnxlkfddfg8c" path="res://scenes/blocks/block_spawner.gd" id="1_q70j1"]
 [ext_resource type="PackedScene" uid="uid://1unhserf3qh8" path="res://scenes/blocks/metal_blocks/metal_block_straight.tscn" id="2_jfi4h"]
@@ -6,13 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://b0177buwkgsme" path="res://scenes/blocks/metal_blocks/metal_block_square.tscn" id="4_bkkx8"]
 [ext_resource type="PackedScene" uid="uid://b751fxlubghsc" path="res://scenes/blocks/metal_blocks/metal_block_t.tscn" id="5_gasr1"]
 [ext_resource type="PackedScene" uid="uid://coicobv55yy8u" path="res://scenes/blocks/metal_blocks/metal_block_u.tscn" id="6_tg8wp"]
+[ext_resource type="PackedScene" uid="uid://7878fibrts88" path="res://scenes/blocks/brick_blocks/brick_wall.tscn" id="7_gasr1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0npo0"]
 size = Vector2(150, 102)
 
 [node name="BlockSpawner" type="Node2D"]
 script = ExtResource("1_q70j1")
-block_types = Array[PackedScene]([ExtResource("2_jfi4h"), ExtResource("3_0cnjw"), ExtResource("4_bkkx8"), ExtResource("5_gasr1"), ExtResource("6_tg8wp")])
+block_types = Array[PackedScene]([ExtResource("2_jfi4h"), ExtResource("3_0cnjw"), ExtResource("4_bkkx8"), ExtResource("5_gasr1"), ExtResource("6_tg8wp"), ExtResource("7_gasr1")])
 rotations = Array[float]([0.0, 45.0, 90.0, 180.0, 270.0, -45.0, -90.0, -180.0, 0.0, 0.0, 0.0])
 
 [node name="Area2D" type="Area2D" parent="."]
