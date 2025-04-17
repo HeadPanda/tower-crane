@@ -1,16 +1,70 @@
-[gd_scene load_steps=6 format=4 uid="uid://bme2vha657mry"]
+[gd_scene load_steps=9 format=4 uid="uid://bme2vha657mry"]
 
 [ext_resource type="TileSet" uid="uid://b4dyg6xs3awni" path="res://resources/tilesets/level_tileset.tres" id="1_k2ry8"]
 [ext_resource type="PackedScene" uid="uid://cp1mkyswu7kie" path="res://scenes/ambience/ambience_manager.tscn" id="1_o3fsm"]
+[ext_resource type="Texture2D" uid="uid://bwdd846w1h8c" path="res://assets/art/backgrounds/Starfield_02-1024x1024.png" id="2_4rgqo"]
 [ext_resource type="PackedScene" uid="uid://6dkng1ng3h57" path="res://scenes/crane/crane.tscn" id="2_t0hj8"]
 [ext_resource type="PackedScene" uid="uid://1unhserf3qh8" path="res://scenes/blocks/metal_block_straight.tscn" id="3_t0hj8"]
 [ext_resource type="PackedScene" uid="uid://smsai3kmcuqh" path="res://scenes/blocks/block_spawner.tscn" id="4_vjt8f"]
 
+[sub_resource type="Gradient" id="Gradient_o3fsm"]
+offsets = PackedFloat32Array(0, 0.340807, 0.488789, 0.623318, 0.793722, 0.90583, 1)
+colors = PackedColorArray(6.44952e-06, 0.630656, 0.834462, 1, 0.307577, 0.792165, 1, 1, 0, 0.631373, 0.835294, 1, 0.274731, 0.325032, 0.638698, 1, 0.115514, 2.59906e-06, 0.554659, 1, 0.0131758, 1.98539e-07, 0.158858, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4rgqo"]
+gradient = SubResource("Gradient_o3fsm")
+width = 640
+height = 360
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+
 [node name="Level" type="Node2D"]
+
+[node name="Hud" type="CanvasLayer" parent="."]
 
 [node name="AmbienceManager" parent="." instance=ExtResource("1_o3fsm")]
 
 [node name="Background" type="Node2D" parent="."]
+
+[node name="Backgrounds" type="Control" parent="Background"]
+custom_minimum_size = Vector2(1920, 1650)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BackgroundContainer" type="VBoxContainer" parent="Background/Backgrounds"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -6428.0
+offset_right = 960.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Space" type="TextureRect" parent="Background/Backgrounds/BackgroundContainer"]
+layout_mode = 2
+texture = ExtResource("2_4rgqo")
+
+[node name="BlueSky" type="TextureRect" parent="Background/Backgrounds/BackgroundContainer"]
+modulate = Color(1, 1, 1, 0.94902)
+z_index = -5
+custom_minimum_size = Vector2(1920, 5400)
+layout_mode = 2
+texture = SubResource("GradientTexture2D_4rgqo")
 
 [node name="Main" type="Node2D" parent="."]
 
