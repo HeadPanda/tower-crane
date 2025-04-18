@@ -34,7 +34,7 @@ energy = 0.25
 
 [node name="BirdPark" type="AudioStreamPlayer" parent="AmbientTracksDay"]
 stream = ExtResource("2_o2l6l")
-volume_db = -22.0
+volume_db = -25.0
 bus = &"Ambience"
 
 [node name="CaveWind" type="AudioStreamPlayer" parent="AmbientTracksDay"]
