@@ -9,8 +9,8 @@
 size = Vector2(61, 22)
 
 [node name="Block" type="RigidBody2D" groups=["Blocks"]]
-collision_layer = 4
-collision_mask = 13
+collision_layer = 256
+collision_mask = 0
 mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_o0bwp")
 contact_monitor = true

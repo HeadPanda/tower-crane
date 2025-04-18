@@ -138,6 +138,7 @@ func _on_grab_pressed():
 		held_block = null
 		await get_tree().create_timer(release_delay).timeout
 		cached_block.set_collision_layer_value(3, true)
+		cached_block.set_collision_layer_value(8, true)
 		cached_block.set_collision_layer_value(4, false)
 		#cached_block.set_collision_mask_value(2, true)
 		cached_block.lock_rotation = false
@@ -148,8 +149,10 @@ func _on_grab_pressed():
 				attach_sfx.play()
 				held_block = body
 				held_block.set_collision_layer_value(3, false)
+				held_block.set_collision_layer_value(9, false)
 				held_block.set_collision_layer_value(4, true)
 				held_block.set_collision_mask_value(2, false)
+				held_block.set_collision_mask_value(3, true)
 				held_block.freeze = false
 				#held_block.lock_rotation = true
 				

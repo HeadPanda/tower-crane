@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1amcjlbfr842"]
+
+[ext_resource type="Script" uid="uid://ca21q8idpumsb" path="res://scenes/tower_height_raiser/tower_height_raiser.gd" id="1_kjgkr"]
+
+[node name="TowerHeightRaiser" type="Node2D"]
+script = ExtResource("1_kjgkr")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(1920, 0)
+collision_mask = 128

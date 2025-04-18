@@ -85,6 +85,8 @@ rotate_right={
 2d_physics/layer_5="SpawnArea"
 2d_physics/layer_6="CraneChain"
 2d_physics/layer_7="BlockDetectionArea"
+2d_physics/layer_8="PlayerActivatedBlock"
+2d_physics/layer_9="DeactivatedBlock"
 
 [physics]
 

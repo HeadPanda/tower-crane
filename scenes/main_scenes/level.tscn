@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bme2vha657mry"]
+[gd_scene load_steps=12 format=4 uid="uid://bme2vha657mry"]
 
 [ext_resource type="TileSet" uid="uid://b4dyg6xs3awni" path="res://resources/tilesets/level_tileset.tres" id="1_k2ry8"]
 [ext_resource type="PackedScene" uid="uid://cp1mkyswu7kie" path="res://scenes/ambience/ambience_manager.tscn" id="1_o3fsm"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://6dkng1ng3h57" path="res://scenes/crane/crane.tscn" id="2_t0hj8"]
 [ext_resource type="PackedScene" uid="uid://1unhserf3qh8" path="res://scenes/blocks/metal_blocks/metal_block_straight.tscn" id="3_t0hj8"]
 [ext_resource type="PackedScene" uid="uid://smsai3kmcuqh" path="res://scenes/blocks/block_spawner.tscn" id="4_vjt8f"]
+[ext_resource type="PackedScene" uid="uid://d1amcjlbfr842" path="res://scenes/tower_height_raiser/tower_height_raiser.tscn" id="6_22qjb"]
 [ext_resource type="PackedScene" uid="uid://qlw73qud3dtp" path="res://scenes/blocks/block_deletion_zone.tscn" id="7_jmqta"]
 
 [sub_resource type="Gradient" id="Gradient_o3fsm"]
@@ -85,15 +86,21 @@ unique_name_in_owner = true
 [node name="MetalBlockStraight2" parent="Main/Blocks" instance=ExtResource("3_t0hj8")]
 position = Vector2(289, 306)
 rotation = 1.57079
+collision_layer = 4
+collision_mask = 13
 max_contacts_reported = 5
 
 [node name="MetalBlockStraight3" parent="Main/Blocks" instance=ExtResource("3_t0hj8")]
 position = Vector2(340, 306)
 rotation = 1.57079
+collision_layer = 4
+collision_mask = 13
 max_contacts_reported = 5
 
 [node name="MetalBlockStraight" parent="Main/Blocks" instance=ExtResource("3_t0hj8")]
 position = Vector2(317, 262)
+collision_layer = 4
+collision_mask = 13
 max_contacts_reported = 5
 
 [node name="Player" type="Node2D" parent="Main"]
@@ -101,18 +108,22 @@ max_contacts_reported = 5
 [node name="Crane" parent="Main/Player" instance=ExtResource("2_t0hj8")]
 position = Vector2(328, -231)
 
-[node name="BlockSpawners" type="Node2D" parent="Main"]
+[node name="TowerHeightRaiser" parent="Main" instance=ExtResource("6_22qjb")]
+position = Vector2(0, 155)
 
-[node name="BlockSpawner" parent="Main/BlockSpawners" instance=ExtResource("4_vjt8f")]
+[node name="BlockSpawners" type="Node2D" parent="Main/TowerHeightRaiser"]
+position = Vector2(0, -105)
+
+[node name="BlockSpawner" parent="Main/TowerHeightRaiser/BlockSpawners" instance=ExtResource("4_vjt8f")]
 position = Vector2(563, 227)
 
-[node name="BlockSpawner2" parent="Main/BlockSpawners" instance=ExtResource("4_vjt8f")]
+[node name="BlockSpawner2" parent="Main/TowerHeightRaiser/BlockSpawners" instance=ExtResource("4_vjt8f")]
 position = Vector2(75, 227)
 
-[node name="BlockSpawner3" parent="Main/BlockSpawners" instance=ExtResource("4_vjt8f")]
+[node name="BlockSpawner3" parent="Main/TowerHeightRaiser/BlockSpawners" instance=ExtResource("4_vjt8f")]
 position = Vector2(563, -6)
 
-[node name="BlockSpawner4" parent="Main/BlockSpawners" instance=ExtResource("4_vjt8f")]
+[node name="BlockSpawner4" parent="Main/TowerHeightRaiser/BlockSpawners" instance=ExtResource("4_vjt8f")]
 position = Vector2(75, -6)
 
 [node name="BlockDeletionAreas" type="Node2D" parent="Main"]
