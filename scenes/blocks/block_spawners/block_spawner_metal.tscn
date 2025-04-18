@@ -1,0 +1,11 @@
+[gd_scene load_steps=7 format=3 uid="uid://ksgk5365d6ha"]
+
+[ext_resource type="PackedScene" uid="uid://smsai3kmcuqh" path="res://scenes/blocks/block_spawners/block_spawner.tscn" id="1_eof4i"]
+[ext_resource type="PackedScene" uid="uid://dlxu57c1cnxuf" path="res://scenes/blocks/metal_blocks/metal_block_l.tscn" id="2_20ksl"]
+[ext_resource type="PackedScene" uid="uid://b0177buwkgsme" path="res://scenes/blocks/metal_blocks/metal_block_square.tscn" id="3_hil4u"]
+[ext_resource type="PackedScene" uid="uid://1unhserf3qh8" path="res://scenes/blocks/metal_blocks/metal_block_straight.tscn" id="4_8n4vy"]
+[ext_resource type="PackedScene" uid="uid://b751fxlubghsc" path="res://scenes/blocks/metal_blocks/metal_block_t.tscn" id="5_8yuk3"]
+[ext_resource type="PackedScene" uid="uid://coicobv55yy8u" path="res://scenes/blocks/metal_blocks/metal_block_u.tscn" id="6_d7txq"]
+
+[node name="BlockSpawnerMetal" instance=ExtResource("1_eof4i")]
+block_types = Array[PackedScene]([ExtResource("2_20ksl"), ExtResource("3_hil4u"), ExtResource("4_8n4vy"), ExtResource("5_8yuk3"), ExtResource("6_d7txq")])

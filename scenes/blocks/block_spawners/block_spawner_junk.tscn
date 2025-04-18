@@ -1,0 +1,12 @@
+[gd_scene load_steps=7 format=3 uid="uid://bn4ay8vcesufi"]
+
+[ext_resource type="PackedScene" uid="uid://smsai3kmcuqh" path="res://scenes/blocks/block_spawners/block_spawner.tscn" id="1_8tcmi"]
+[ext_resource type="PackedScene" uid="uid://dtvrd0x6aymo8" path="res://scenes/blocks/junk_blocks/junk_block_barrel.tscn" id="2_qd3me"]
+[ext_resource type="PackedScene" uid="uid://b321n0v252yop" path="res://scenes/blocks/junk_blocks/junk_block_bus.tscn" id="3_jjeoq"]
+[ext_resource type="PackedScene" uid="uid://cr61ieu1gol6f" path="res://scenes/blocks/junk_blocks/junk_block_dumpster.tscn" id="4_woowe"]
+[ext_resource type="PackedScene" uid="uid://g466o5i3qay3" path="res://scenes/blocks/junk_blocks/junk_block_van.tscn" id="5_wohef"]
+[ext_resource type="PackedScene" uid="uid://1unhserf3qh8" path="res://scenes/blocks/metal_blocks/metal_block_straight.tscn" id="6_jjeoq"]
+
+[node name="BlockSpawnerJunk" instance=ExtResource("1_8tcmi")]
+block_types = Array[PackedScene]([ExtResource("2_qd3me"), ExtResource("3_jjeoq"), ExtResource("4_woowe"), ExtResource("5_wohef"), ExtResource("6_jjeoq"), ExtResource("4_woowe"), ExtResource("2_qd3me")])
+spawn_delay = 20.0

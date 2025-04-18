@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bme2vha657mry"]
+[gd_scene load_steps=15 format=4 uid="uid://bme2vha657mry"]
 
 [ext_resource type="PackedScene" uid="uid://c1ys5vdwcxyve" path="res://scenes/ui/blocks_dropped_counter.tscn" id="1_ixrmu"]
 [ext_resource type="TileSet" uid="uid://b4dyg6xs3awni" path="res://resources/tilesets/level_tileset.tres" id="1_k2ry8"]
@@ -6,9 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://bwdd846w1h8c" path="res://assets/art/backgrounds/Starfield_02-1024x1024.png" id="2_4rgqo"]
 [ext_resource type="PackedScene" uid="uid://6dkng1ng3h57" path="res://scenes/crane/crane.tscn" id="2_t0hj8"]
 [ext_resource type="PackedScene" uid="uid://1unhserf3qh8" path="res://scenes/blocks/metal_blocks/metal_block_straight.tscn" id="3_t0hj8"]
-[ext_resource type="PackedScene" uid="uid://smsai3kmcuqh" path="res://scenes/blocks/block_spawner.tscn" id="4_vjt8f"]
 [ext_resource type="PackedScene" uid="uid://d1amcjlbfr842" path="res://scenes/tower_height_raiser/tower_height_raiser.tscn" id="6_22qjb"]
 [ext_resource type="PackedScene" uid="uid://qlw73qud3dtp" path="res://scenes/blocks/block_deletion_zone.tscn" id="7_jmqta"]
+[ext_resource type="PackedScene" uid="uid://bn4ay8vcesufi" path="res://scenes/blocks/block_spawners/block_spawner_junk.tscn" id="8_cannv"]
+[ext_resource type="PackedScene" uid="uid://ksgk5365d6ha" path="res://scenes/blocks/block_spawners/block_spawner_metal.tscn" id="9_jiju4"]
+[ext_resource type="PackedScene" uid="uid://bwtrlapmt4ah6" path="res://scenes/blocks/block_spawners/block_spawner_brick.tscn" id="11_i40vj"]
 
 [sub_resource type="Gradient" id="Gradient_o3fsm"]
 offsets = PackedFloat32Array(0, 0.340807, 0.488789, 0.623318, 0.793722, 0.914798, 0.991031)
@@ -129,17 +131,17 @@ position = Vector2(0, 155)
 [node name="BlockSpawners" type="Node2D" parent="Main/TowerHeightRaiser"]
 position = Vector2(0, -105)
 
-[node name="BlockSpawner" parent="Main/TowerHeightRaiser/BlockSpawners" instance=ExtResource("4_vjt8f")]
-position = Vector2(563, 227)
+[node name="BlockSpawnerJunk" parent="Main/TowerHeightRaiser/BlockSpawners" instance=ExtResource("8_cannv")]
+position = Vector2(75, -8)
 
-[node name="BlockSpawner2" parent="Main/TowerHeightRaiser/BlockSpawners" instance=ExtResource("4_vjt8f")]
+[node name="BlockSpawnerMetal" parent="Main/TowerHeightRaiser/BlockSpawners" instance=ExtResource("9_jiju4")]
 position = Vector2(75, 227)
 
-[node name="BlockSpawner3" parent="Main/TowerHeightRaiser/BlockSpawners" instance=ExtResource("4_vjt8f")]
-position = Vector2(563, -6)
+[node name="BlockSpawnerMetal2" parent="Main/TowerHeightRaiser/BlockSpawners" instance=ExtResource("9_jiju4")]
+position = Vector2(563, 227)
 
-[node name="BlockSpawner4" parent="Main/TowerHeightRaiser/BlockSpawners" instance=ExtResource("4_vjt8f")]
-position = Vector2(75, -6)
+[node name="BlockSpawnerBrick" parent="Main/TowerHeightRaiser/BlockSpawners" instance=ExtResource("11_i40vj")]
+position = Vector2(563, -8)
 
 [node name="BlockDeletionAreas" type="Node2D" parent="Main"]
 

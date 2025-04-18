@@ -2,7 +2,7 @@ class_name Block
 extends RigidBody2D
 
 @export var impact_threshold := 125
-@export var despawn_time_sec: float = 5.0
+@export var despawn_time_sec: float = 30.0
 @export var should_despawn: bool = false:
 	set(value):
 		should_despawn = value
