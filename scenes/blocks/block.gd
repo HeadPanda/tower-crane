@@ -72,6 +72,14 @@ func is_stable() -> bool:
 	return is_stable_linear and is_stable_angular and get_contact_count() > 0
 
 
+func change_gravity(amount: float) -> void:
+	gravity_scale = amount
+
+
+func reset_gravity() -> void:
+	gravity_scale = 1.0
+
+
 func _on_body_entered(body: Node) -> void:
 	if linear_velocity.length() > impact_threshold:
 		if sfx.stream and not sfx.playing and sfx_timer.time_left == 0:

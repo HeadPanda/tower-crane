@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bme2vha657mry"]
+[gd_scene load_steps=18 format=4 uid="uid://bme2vha657mry"]
 
 [ext_resource type="PackedScene" uid="uid://c1ys5vdwcxyve" path="res://scenes/ui/blocks_dropped_counter.tscn" id="1_ixrmu"]
 [ext_resource type="TileSet" uid="uid://b4dyg6xs3awni" path="res://resources/tilesets/level_tileset.tres" id="1_k2ry8"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bn4ay8vcesufi" path="res://scenes/blocks/block_spawners/block_spawner_junk.tscn" id="8_cannv"]
 [ext_resource type="PackedScene" uid="uid://ksgk5365d6ha" path="res://scenes/blocks/block_spawners/block_spawner_metal.tscn" id="9_jiju4"]
 [ext_resource type="PackedScene" uid="uid://bwtrlapmt4ah6" path="res://scenes/blocks/block_spawners/block_spawner_brick.tscn" id="11_i40vj"]
+[ext_resource type="PackedScene" uid="uid://cppv86aaarset" path="res://scenes/blocks/gravity_field.tscn" id="13_i40vj"]
 
 [sub_resource type="Gradient" id="Gradient_o3fsm"]
 offsets = PackedFloat32Array(0, 0.340807, 0.488789, 0.623318, 0.793722, 0.914798, 0.991031)
@@ -26,6 +27,9 @@ fill_to = Vector2(0.5, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22qjb"]
 size = Vector2(3079, 376)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0mu5"]
+size = Vector2(1920, 3023)
 
 [node name="Level" type="Node2D"]
 
@@ -168,6 +172,14 @@ position = Vector2(85, 665)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Main/BlockDeletionAreas/BottomBlockDeletionZone"]
 position = Vector2(328.5, 151)
 shape = SubResource("RectangleShape2D_22qjb")
+
+[node name="GravityField" parent="Main" instance=ExtResource("13_i40vj")]
+position = Vector2(72, -1827)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Main/GravityField"]
+position = Vector2(250, -551.5)
+shape = SubResource("RectangleShape2D_d0mu5")
+debug_color = Color(0.0546883, 0.00388672, 0.189173, 0.42)
 
 [node name="Foreground" type="Node2D" parent="."]
 
