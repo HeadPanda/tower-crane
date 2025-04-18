@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var raise_height: float = 200
+@export var raise_height: float = 100
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 
 func _physics_process(delta: float) -> void:

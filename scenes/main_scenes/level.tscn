@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bme2vha657mry"]
+[gd_scene load_steps=16 format=4 uid="uid://bme2vha657mry"]
 
 [ext_resource type="PackedScene" uid="uid://c1ys5vdwcxyve" path="res://scenes/ui/blocks_dropped_counter.tscn" id="1_ixrmu"]
 [ext_resource type="TileSet" uid="uid://b4dyg6xs3awni" path="res://resources/tilesets/level_tileset.tres" id="1_k2ry8"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bn4ay8vcesufi" path="res://scenes/blocks/block_spawners/block_spawner_junk.tscn" id="8_cannv"]
 [ext_resource type="PackedScene" uid="uid://ksgk5365d6ha" path="res://scenes/blocks/block_spawners/block_spawner_metal.tscn" id="9_jiju4"]
 [ext_resource type="PackedScene" uid="uid://bwtrlapmt4ah6" path="res://scenes/blocks/block_spawners/block_spawner_brick.tscn" id="11_i40vj"]
+[ext_resource type="PackedScene" uid="uid://b321n0v252yop" path="res://scenes/blocks/junk_blocks/junk_block_bus.tscn" id="12_cannv"]
 
 [sub_resource type="Gradient" id="Gradient_o3fsm"]
 offsets = PackedFloat32Array(0, 0.340807, 0.488789, 0.623318, 0.793722, 0.914798, 0.991031)
@@ -61,7 +62,7 @@ offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 8
 
 [node name="BackgroundContainer" type="VBoxContainer" parent="Background/Backgrounds"]
 custom_minimum_size = Vector2(1920, 1080)
@@ -77,6 +78,7 @@ offset_right = 960.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = -8
+alignment = 2
 
 [node name="Space" type="TextureRect" parent="Background/Backgrounds/BackgroundContainer"]
 custom_minimum_size = Vector2(1920, 3240)
@@ -87,8 +89,9 @@ stretch_mode = 1
 [node name="BlueSky" type="TextureRect" parent="Background/Backgrounds/BackgroundContainer"]
 modulate = Color(1, 1, 1, 0.94902)
 z_index = -5
-custom_minimum_size = Vector2(1920, 5400)
+custom_minimum_size = Vector2(1920, 2000)
 layout_mode = 2
+size_flags_vertical = 8
 texture = SubResource("GradientTexture2D_4rgqo")
 
 [node name="Main" type="Node2D" parent="."]
@@ -153,6 +156,8 @@ position = Vector2(328.5, 151)
 shape = SubResource("RectangleShape2D_22qjb")
 
 [node name="Foreground" type="Node2D" parent="."]
+
+[node name="JunkBlockBus" parent="." instance=ExtResource("12_cannv")]
 
 [connection signal="body_shape_entered" from="Main/Blocks/MetalBlockStraight2" to="Main/Blocks/MetalBlockStraight2" method="_on_body_shape_entered"]
 [connection signal="body_shape_entered" from="Main/Blocks/MetalBlockStraight3" to="Main/Blocks/MetalBlockStraight3" method="_on_body_shape_entered"]
