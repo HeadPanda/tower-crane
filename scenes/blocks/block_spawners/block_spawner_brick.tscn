@@ -5,3 +5,4 @@
 
 [node name="BlockSpawnerBrick" instance=ExtResource("1_qq8bx")]
 block_types = Array[PackedScene]([ExtResource("2_dndt8")])
+spawn_delay = 10.0
