@@ -10,7 +10,6 @@ size = Vector2(61, 22)
 
 [node name="Block" type="RigidBody2D" groups=["Blocks"]]
 collision_layer = 256
-collision_mask = 0
 mass = 2.0
 physics_material_override = SubResource("PhysicsMaterial_o0bwp")
 contact_monitor = true
@@ -37,4 +36,8 @@ tile_set = ExtResource("1_7fut1")
 [node name="SFXTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="DespawnTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

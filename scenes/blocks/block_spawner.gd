@@ -30,4 +30,5 @@ func spawn() -> void:
 	
 	random_block.global_position = global_position
 	blocks_container.add_child(random_block)
+	random_block.should_despawn = true
 	

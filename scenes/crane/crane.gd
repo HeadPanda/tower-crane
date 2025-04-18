@@ -128,33 +128,25 @@ func play_switch_sfx() -> void:
 
 func _on_grab_pressed():
 	if held_block:
+		held_block.is_held = false
 		attach_sfx.play()
 		# Drop the block
 		if joint:
 			joint.queue_free()
 			joint = null
 		
-		var cached_block = held_block
+		var cached_block = held_block as Block
 		held_block = null
 		await get_tree().create_timer(release_delay).timeout
-		cached_block.set_collision_layer_value(3, true)
-		cached_block.set_collision_layer_value(8, true)
-		cached_block.set_collision_layer_value(4, false)
-		#cached_block.set_collision_mask_value(2, true)
+		cached_block.activate_collision(true)
 		cached_block.lock_rotation = false
 		cached_block = null
 	else:
 		for body in grab_area.get_overlapping_bodies():
 			if body.is_in_group("Blocks"):
 				attach_sfx.play()
-				held_block = body
-				held_block.set_collision_layer_value(3, false)
-				held_block.set_collision_layer_value(9, false)
-				held_block.set_collision_layer_value(4, true)
-				held_block.set_collision_mask_value(2, false)
-				held_block.set_collision_mask_value(3, true)
-				held_block.freeze = false
-				#held_block.lock_rotation = true
+				held_block = body as Block
+				held_block.pickup()
 				
 				# Create the joint
 				joint = PinJoint2D.new()
