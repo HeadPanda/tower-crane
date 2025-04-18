@@ -12,11 +12,11 @@ enum Time_States {
 @export_group("Audio")
 @export var music_tracks_day: Array[AudioStream]
 @export var music_tracks_night: Array[AudioStream]
-@export_range(0, 1.0, 0.05) var chance_to_play_music: float = 0.50
+@export_range(0, 1.0, 0.05) var chance_to_play_music: float = 0.60
 
 @export_group("Day Night Cycle")
 @export var day_night_gradient: Gradient
-@export var day_length_minutes := 3.0
+@export var day_length_minutes := 4.0
 @export var day_start := 0.2
 @export var day_end := 0.75
 

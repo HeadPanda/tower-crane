@@ -34,24 +34,24 @@ energy = 0.25
 
 [node name="BirdPark" type="AudioStreamPlayer" parent="AmbientTracksDay"]
 stream = ExtResource("2_o2l6l")
-volume_db = -20.0
+volume_db = -22.0
 bus = &"Ambience"
 
 [node name="CaveWind" type="AudioStreamPlayer" parent="AmbientTracksDay"]
 stream = ExtResource("3_jb7kt")
-volume_db = -5.0
+volume_db = -6.0
 bus = &"Ambience"
 
 [node name="Wind" type="AudioStreamPlayer" parent="AmbientTracksDay"]
 stream = ExtResource("4_137pv")
-volume_db = 10.0
+volume_db = 12.0
 bus = &"Ambience"
 
 [node name="AmbientTracksNight" type="Node2D" parent="."]
 
 [node name="WindNight" type="AudioStreamPlayer" parent="AmbientTracksNight"]
 stream = ExtResource("4_137pv")
-volume_db = 10.0
+volume_db = 12.0
 bus = &"Ambience"
 
 [node name="NightCrickets" type="AudioStreamPlayer" parent="AmbientTracksNight"]
