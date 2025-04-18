@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://chcfuaqygps3w" path="res://scenes/blocks/block_deletion_zone.gd" id="1_isugg"]
 
-[node name="BlockDeletionZone" type="Area2D"]
+[node name="BlockDeletionZone" type="Area2D" groups=["Block Deletion Zone"]]
 collision_layer = 0
 collision_mask = 68
 script = ExtResource("1_isugg")

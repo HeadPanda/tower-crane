@@ -28,6 +28,7 @@ mouse_cursor/custom_image="uid://e03y7inuhl3k"
 [global_group]
 
 Blocks=""
+"Block Deletion Zone"=""
 
 [input]
 

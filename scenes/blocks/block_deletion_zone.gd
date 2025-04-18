@@ -1,3 +1,4 @@
+class_name BlockDeletionZone
 extends Area2D
 
 signal block_removed()

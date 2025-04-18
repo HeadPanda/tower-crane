@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1ys5vdwcxyve"]
+
+[ext_resource type="FontFile" uid="uid://6ht43g53pme0" path="res://assets/fonts/Kenney Pixel.ttf" id="1_er7n1"]
+[ext_resource type="Script" uid="uid://clhlkpg6oudh4" path="res://scenes/ui/blocks_dropped_counter.gd" id="2_ydov0"]
+
+[node name="BlocksDroppedCounter" type="Label"]
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0.513726)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.14902)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("1_er7n1")
+theme_override_font_sizes/font_size = 16
+text = "Blocks Dropped: 0"
+script = ExtResource("2_ydov0")

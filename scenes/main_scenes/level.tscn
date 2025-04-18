@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=4 uid="uid://bme2vha657mry"]
+[gd_scene load_steps=13 format=4 uid="uid://bme2vha657mry"]
 
+[ext_resource type="PackedScene" uid="uid://c1ys5vdwcxyve" path="res://scenes/ui/blocks_dropped_counter.tscn" id="1_ixrmu"]
 [ext_resource type="TileSet" uid="uid://b4dyg6xs3awni" path="res://resources/tilesets/level_tileset.tres" id="1_k2ry8"]
 [ext_resource type="PackedScene" uid="uid://cp1mkyswu7kie" path="res://scenes/ambience/ambience_manager.tscn" id="1_o3fsm"]
 [ext_resource type="Texture2D" uid="uid://bwdd846w1h8c" path="res://assets/art/backgrounds/Starfield_02-1024x1024.png" id="2_4rgqo"]
@@ -26,6 +27,20 @@ size = Vector2(3079, 376)
 [node name="Level" type="Node2D"]
 
 [node name="Hud" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="Hud"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="BlocksDroppedCounter" parent="Hud/MarginContainer" instance=ExtResource("1_ixrmu")]
+layout_mode = 2
 
 [node name="AmbienceManager" parent="." instance=ExtResource("1_o3fsm")]
 
