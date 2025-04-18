@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://qlw73qud3dtp"]
+
+[ext_resource type="Script" uid="uid://chcfuaqygps3w" path="res://scenes/blocks/block_deletion_zone.gd" id="1_isugg"]
+
+[node name="BlockDeletionZone" type="Area2D"]
+collision_layer = 0
+collision_mask = 68
+script = ExtResource("1_isugg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
