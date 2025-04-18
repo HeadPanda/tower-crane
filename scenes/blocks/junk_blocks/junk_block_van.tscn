@@ -9,7 +9,7 @@ atlas = ExtResource("3_2cs7u")
 region = Rect2(1699, 261, 92, 56)
 
 [node name="JunkBlockVan" instance=ExtResource("1_w7bef")]
-mass = 8.0
+mass = 7.0
 impact_threshold = 125
 
 [node name="CollisionShape2D" parent="BlockDetectionArea" index="0"]
