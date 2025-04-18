@@ -1,0 +1,167 @@
+[gd_scene load_steps=11 format=4 uid="uid://b5tepj2k3henw"]
+
+[ext_resource type="Script" uid="uid://dktdqydhvm42g" path="res://scenes/main_scenes/main_menu.gd" id="1_enjcu"]
+[ext_resource type="Texture2D" uid="uid://bwdd846w1h8c" path="res://assets/art/backgrounds/Starfield_02-1024x1024.png" id="2_q3f11"]
+[ext_resource type="TileSet" uid="uid://b4dyg6xs3awni" path="res://resources/tilesets/level_tileset.tres" id="3_g3b7m"]
+[ext_resource type="PackedScene" uid="uid://1unhserf3qh8" path="res://scenes/blocks/metal_blocks/metal_block_straight.tscn" id="4_kpo0u"]
+[ext_resource type="FontFile" uid="uid://6ht43g53pme0" path="res://assets/fonts/Kenney Pixel.ttf" id="6_6r42y"]
+[ext_resource type="PackedScene" uid="uid://6dkng1ng3h57" path="res://scenes/crane/crane.tscn" id="7_4mf0r"]
+[ext_resource type="PackedScene" uid="uid://qlw73qud3dtp" path="res://scenes/blocks/block_deletion_zone.tscn" id="12_k2ipi"]
+
+[sub_resource type="Gradient" id="Gradient_o3fsm"]
+offsets = PackedFloat32Array(0, 0.340807, 0.488789, 0.623318, 0.793722, 0.914798, 0.991031)
+colors = PackedColorArray(6.44952e-06, 0.630656, 0.834462, 1, 0.307577, 0.792165, 1, 1, 0, 0.631373, 0.835294, 1, 0.274731, 0.325032, 0.638698, 1, 0.115514, 2.59906e-06, 0.554659, 1, 0.0131758, 1.98539e-07, 0.158858, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4rgqo"]
+gradient = SubResource("Gradient_o3fsm")
+width = 640
+height = 360
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_22qjb"]
+size = Vector2(3079, 376)
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_enjcu")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Backgrounds" type="Control" parent="Background"]
+custom_minimum_size = Vector2(1920, 1650)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="BackgroundContainer" type="VBoxContainer" parent="Background/Backgrounds"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -6428.0
+offset_right = 960.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = -8
+alignment = 2
+
+[node name="Space" type="TextureRect" parent="Background/Backgrounds/BackgroundContainer"]
+custom_minimum_size = Vector2(1920, 3240)
+layout_mode = 2
+texture = ExtResource("2_q3f11")
+stretch_mode = 1
+
+[node name="BlueSky" type="TextureRect" parent="Background/Backgrounds/BackgroundContainer"]
+modulate = Color(1, 1, 1, 0.94902)
+z_index = -5
+custom_minimum_size = Vector2(1920, 2000)
+layout_mode = 2
+size_flags_vertical = 8
+texture = SubResource("GradientTexture2D_4rgqo")
+
+[node name="Main" type="Node2D" parent="."]
+
+[node name="PlatformTilemap" type="TileMapLayer" parent="Main"]
+tile_map_data = PackedByteArray("AAAWABMAAQADAAEAAAAVABMAAQACAAEAAAAUABMAAQACAAEAAAATABMAAQACAAEAAAASABMAAQACAAEAAAARABMAAQACAAEAAAAQABMAAQACAAEAAAAPABMAAQACAAEAAAAOABMAAQACAAEAAAAWABkAAQADAAMAAAAWABgAAQADAAIAAAAWABcAAQADAAIAAAAWABYAAQADAAIAAAAWABUAAQADAAIAAAAWABQAAQADAAIAAAAVABkAAQACAAMAAAAVABgAAQACAAIAAAAVABcAAQACAAIAAAAVABYAAQACAAIAAAAVABUAAQACAAIAAAAVABQAAQACAAIAAAAUABkAAQACAAMAAAAUABgAAQACAAIAAAAUABcAAQACAAIAAAAUABYAAQACAAIAAAAUABUAAQACAAIAAAAUABQAAQACAAIAAAATABkAAQACAAMAAAATABgAAQACAAIAAAATABcAAQACAAIAAAATABYAAQACAAIAAAATABUAAQACAAIAAAATABQAAQACAAIAAAASABkAAQACAAMAAAASABgAAQACAAIAAAASABcAAQACAAIAAAASABYAAQACAAIAAAASABUAAQACAAIAAAASABQAAQACAAIAAAARABkAAQACAAMAAAARABgAAQACAAIAAAARABcAAQACAAIAAAARABYAAQACAAIAAAARABUAAQACAAIAAAARABQAAQACAAIAAAAQABkAAQACAAMAAAAQABgAAQACAAIAAAAQABcAAQACAAIAAAAQABYAAQACAAIAAAAQABUAAQACAAIAAAAQABQAAQACAAIAAAAPABkAAQACAAMAAAAPABgAAQACAAIAAAAPABcAAQACAAIAAAAPABYAAQACAAIAAAAPABUAAQACAAIAAAAPABQAAQACAAIAAAAOABkAAQACAAMAAAAOABgAAQACAAIAAAAOABcAAQACAAIAAAAOABYAAQACAAIAAAAOABUAAQACAAIAAAAOABQAAQACAAIAAAANABMAAQACAAEAAAAMABMAAQABAAEAAAANABkAAQACAAMAAAANABgAAQACAAIAAAANABcAAQACAAIAAAANABYAAQACAAIAAAANABUAAQACAAIAAAANABQAAQACAAIAAAAMABkAAQABAAMAAAAMABgAAQABAAIAAAAMABcAAQABAAIAAAAMABYAAQABAAIAAAAMABUAAQABAAIAAAAMABQAAQABAAIAAAA=")
+tile_set = ExtResource("3_g3b7m")
+
+[node name="Blocks" type="Node2D" parent="Main"]
+unique_name_in_owner = true
+
+[node name="MetalBlockStraight2" parent="Main/Blocks" instance=ExtResource("4_kpo0u")]
+position = Vector2(282, 306)
+rotation = 1.57079
+collision_layer = 4
+collision_mask = 141
+max_contacts_reported = 5
+
+[node name="MetalBlockStraight3" parent="Main/Blocks" instance=ExtResource("4_kpo0u")]
+position = Vector2(349, 306)
+rotation = 1.57079
+collision_layer = 4
+collision_mask = 141
+max_contacts_reported = 5
+
+[node name="MetalBlockStraight" parent="Main/Blocks" instance=ExtResource("4_kpo0u")]
+position = Vector2(316, 262)
+collision_layer = 4
+collision_mask = 141
+max_contacts_reported = 5
+
+[node name="Player" type="Node2D" parent="Main"]
+
+[node name="Crane" parent="Main/Player" instance=ExtResource("7_4mf0r")]
+position = Vector2(178, 3)
+disabled = true
+
+[node name="BlockDeletionAreas" type="Node2D" parent="Main"]
+
+[node name="BottomBlockDeletionZone" parent="Main/BlockDeletionAreas" instance=ExtResource("12_k2ipi")]
+position = Vector2(85, 665)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Main/BlockDeletionAreas/BottomBlockDeletionZone"]
+position = Vector2(328.5, 151)
+shape = SubResource("RectangleShape2D_22qjb")
+
+[node name="Foreground" type="Node2D" parent="."]
+
+[node name="MainMenuUI" type="CanvasLayer" parent="Foreground"]
+
+[node name="MarginContainer" type="MarginContainer" parent="Foreground/MainMenuUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Foreground/MainMenuUI/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="Control" type="Control" parent="Foreground/MainMenuUI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Foreground/MainMenuUI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.494118)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("6_6r42y")
+theme_override_font_sizes/font_size = 64
+text = "Tower Crane"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="Foreground/MainMenuUI/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(180, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("6_6r42y")
+theme_override_font_sizes/font_size = 32
+text = "Start"
+
+[connection signal="body_shape_entered" from="Main/Blocks/MetalBlockStraight2" to="Main/Blocks/MetalBlockStraight2" method="_on_body_shape_entered"]
+[connection signal="body_shape_entered" from="Main/Blocks/MetalBlockStraight3" to="Main/Blocks/MetalBlockStraight3" method="_on_body_shape_entered"]
+[connection signal="body_shape_entered" from="Main/Blocks/MetalBlockStraight" to="Main/Blocks/MetalBlockStraight" method="_on_body_shape_entered"]
+[connection signal="pressed" from="Foreground/MainMenuUI/MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

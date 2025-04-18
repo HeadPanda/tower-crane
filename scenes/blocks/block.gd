@@ -6,12 +6,12 @@ extends RigidBody2D
 @export var should_despawn: bool = false:
 	set(value):
 		should_despawn = value
-		if should_despawn:
+		if should_despawn and is_node_ready():
 			despawn_timer.start()
 var is_held := false:
 	set(value):
 		is_held = value
-		if is_held:
+		if is_held and is_node_ready():
 			despawn_timer.stop()
 @onready var sfx: AudioStreamPlayer2D = $SFX
 @onready var sfx_timer: Timer = $SFXTimer
@@ -63,6 +63,13 @@ func deactivate_collision() -> void:
 	set_collision_mask_value(3, false)
 	set_collision_mask_value(4, false)
 	set_collision_mask_value(8, false)
+
+func is_stable() -> bool:
+	await get_tree().create_timer(0.2).timeout
+	var is_stable_linear: bool = linear_velocity.x <= 0.5 and linear_velocity.y <= 0.5
+	var is_stable_angular: bool = angular_velocity <= 0.5
+	
+	return is_stable_linear and is_stable_angular and get_contact_count() > 0
 
 
 func _on_body_entered(body: Node) -> void:

@@ -12,6 +12,7 @@ extends CharacterBody2D
 @export var min_y_pos := 0
 @export var min_x_pos := 0
 @export var max_x_pos := 640
+@export var disabled := false
 
 @export_group("SFX")
 @export var move_sfx_speed_req := 64.0
@@ -41,6 +42,8 @@ func _ready() -> void:
 	rotate_timer.wait_time = release_delay * 3.0
 
 func _physics_process(delta: float) -> void:
+	if disabled:
+		return
 	var prev_direction_x = direction.x
 	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
